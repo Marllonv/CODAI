@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- css -->
+     <link rel="stylesheet" href="../../static/css/global.css">
+     <link rel="stylesheet" href="../../static/css/login.css">
+    <title>Login</title>
+</head>
+<body>
+    <header id="header-login">
+        <img src="../../static/image/logo-nome.png" alt="logo-codai">
+    </header>
+    <section id="section-login">
+        <div id="image-login">
+            <img src="../../static/image/12146011_Wavy_Gen-01_Single-07.svg" alt="imagem-flat-login">
+        </div>
+        <div id="form-login">
+            <h1>Acessar sua conta</h1>
+            <form action="/login" method="POST">
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <p id="cadastro-link">Não tem uma conta? <a href="">Cadastre-se</a></p>
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
