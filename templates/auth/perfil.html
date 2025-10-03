@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perfil — CODAÍ</title>
+
+  <!-- Reaproveita seu global -->
+  <link rel="stylesheet" href="/static/css/global.css">
+  <!-- Estilos específicos do perfil -->
+  <link rel="stylesheet" href="/static/css/perfil.css">
+</head>
+<body class="perfil">
+  <main class="pf-shell">
+    <div class="pf-container">
+      <!-- TOPO (logo no canto) -->
+      <header class="pf-top">
+        <img src="/static/image/logo-nome.png" alt="CODAÍ" class="pf-logo">
+      </header>
+
+      <!-- HERO (Minha Conta + Ilustração) -->
+      <section class="pf-hero">
+        <div class="pf-info">
+          <h1 class="pf-title">Minha Conta</h1>
+
+          <p class="pf-row">
+            <span class="pf-label">Nome:</span>
+            <span id="pf-name">Vinícius Roberto Gonçalves Dantas</span>
+          </p>
+
+          <p class="pf-row">
+            <span class="pf-label">E-mail:</span>
+            <span id="pf-email">emailtestecdai@gmail.com</span>
+          </p>
+
+          <div class="pf-actions">
+            <form action="/auth/logout" method="post">
+              <button class="btn-danger" type="submit">Logout</button>
+            </form>
+          </div>
+        </div>
+
+        <figure class="pf-illustration">
+          <!-- troque o arquivo conforme o seu -->
+          <img src="/static/image/screen03 1.png" alt="Ilustração de perfil e segurança">
+        </figure>
+      </section>
+
+      <!-- ATIVIDADES (alinhada ao hero e ao topo) -->
+      <section class="pf-activities">
+        <h2 class="pf-subtitle">Minhas Atividades</h2>
+
+        <div class="act-grid">
+          <article class="act-card">
+            <div class="act-body">
+              <h3 class="act-title">Simplificando HTML</h3>
+              <p class="act-meta">Último acesso: 02/10</p>
+            </div>
+            <footer class="act-footer">
+              <a class="act-link" href="/curso/html">Ver mais &gt;</a>
+            </footer>
+          </article>
+
+          <article class="act-card">
+            <div class="act-body">
+              <h3 class="act-title">CSS na Prática</h3>
+              <p class="act-meta">Último acesso: 30/09</p>
+            </div>
+            <footer class="act-footer">
+              <a class="act-link" href="/curso/css">Ver mais &gt;</a>
+            </footer>
+          </article>
+
+          <article class="act-card">
+            <div class="act-body">
+              <h3 class="act-title">Introdução a JS</h3>
+              <p class="act-meta">Último acesso: 28/09</p>
+            </div>
+            <footer class="act-footer">
+              <a class="act-link" href="/curso/js">Ver mais &gt;</a>
+            </footer>
+          </article>
+
+          <article class="act-card">
+            <div class="act-body">
+              <h3 class="act-title">Git Básico</h3>
+              <p class="act-meta">Último acesso: 26/09</p>
+            </div>
+            <footer class="act-footer">
+              <a class="act-link" href="/curso/git">Ver mais &gt;</a>
+            </footer>
+          </article>
+        </div>
+
+        <div class="pf-bottom">
+          <a href="/templates/index.html" class="btn-primary">Voltar</a>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

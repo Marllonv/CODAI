@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cadastro — CODAÍ</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/static/css/global.css">
+  <link rel="stylesheet" href="/static/css/cadastro.css">
+</head>
+<body>
+  <main class="cad-page">
+    <!-- Lado esquerdo -->
+    <section class="cad-left">
+      <header class="cad-brand">
+        <img src="/static/image/logo-nome.png" alt="CODAÍ" height="28">
+      </header>
+
+      <figure class="cad-art">
+        <!-- troque o nome da imagem se necessário -->
+        <img src="/static/image/Data_security.png" alt="Ilustração de segurança">
+      </figure>
+    </section>
+
+    <!-- Lado direito (form) -->
+    <section class="cad-right">
+      <div class="cad-card">
+        <h1 class="cad-title">Criar uma conta</h1>
+
+        <!-- Para demo o action é "#". Quando plugar backend, aponte para sua rota POST -->
+        <form class="cad-form" method="post" action="#">
+          <label class="cad-label" for="name">Nome</label>
+          <input class="cad-input" id="name" name="name" type="text" placeholder="Seu nome completo" required>
+
+          <label class="cad-label" for="email">Email</label>
+          <input class="cad-input" id="email" name="email" type="email" placeholder="voce@email.com" required>
+
+          <label class="cad-label" for="password">Senha</label>
+          <input class="cad-input" id="password" name="password" type="password" placeholder="********" required>
+
+          <label class="cad-label" for="confirm">Confirmação de Senha</label>
+          <input class="cad-input" id="confirm" name="confirm" type="password" placeholder="********" required>
+
+          <button class="cad-btn" type="submit">Entrar</button>
+
+          <p class="cad-helper">
+            Já tem conta?
+            <a class="cad-link" href="/templates/auth/login.html">Login</a>
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ MODAL DE SUCESSO ============ -->
+  <div id="cad-success" class="modal is-hidden" role="dialog" aria-modal="true" aria-labelledby="cad-success-title">
+    <div class="modal__backdrop" data-dismiss></div>
+
+    <div class="modal__card" role="document">
+      <h2 id="cad-success-title" class="modal__title">Conta criada</h2>
+      <p class="modal__desc">Seu cadastro foi realizado com sucesso.</p>
+
+      <div class="modal__actions">
+        <!-- Ajuste o href para a rota que quiser -->
+        <a href="/templates/index.html" class="modal__btn">Ir para home</a>
+        <button class="modal__close" type="button" data-dismiss>Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="/static/js/script.js"></script>
+</body>
+</html>

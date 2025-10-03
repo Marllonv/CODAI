@@ -1,0 +1,142 @@
+/* Paleta:
+   bg #030C26 | surface #06133c | texto claro #DCE2F2
+   primary #41A8BF | accent #85F2E7 | texto escuro #262626
+*/
+
+/* remove o padding lateral do global SOMENTE nesta página */
+body.perfil{ padding: 0; }
+
+/* ===== TELA CHEIA CENTRALIZADA ===== */
+.pf-shell{
+  min-height: 100vh;            /* ocupa toda a altura */
+  display: flex;
+  align-items: center;          /* centraliza verticalmente */
+}
+
+.pf-container{
+  width: min(1200px, 92vw);     /* largura fixa e centralizada */
+  margin: 0 auto;
+}
+
+/* ===== TOPO (logo no canto) ===== */
+.pf-top{
+  height: 64px;
+  display: flex;
+  align-items: center;
+}
+.pf-logo{ height: 28px; }
+
+/* ===== HERO ===== */
+.pf-hero{
+  display: grid;
+  grid-template-columns: 1.1fr .9fr; /* proporção de colunas semelhante ao seu exemplo */
+  align-items: center;
+  column-gap: 56px;
+  padding: 24px 0 40px;
+}
+
+.pf-info{ display: grid; gap: 10px; }
+
+.pf-title{
+  margin: 0 0 12px;
+  font-size: clamp(1.4rem, 2.4vw, 1.75rem);
+  font-weight: 800;
+}
+
+.pf-row{ margin: 0; }
+.pf-label{ font-weight: 700; margin-right: .35rem; }
+
+.pf-actions{ margin-top: 8px; }
+
+/* ===== Botões ===== */
+.btn-primary{
+  display: inline-block;
+  padding: .85rem 1.25rem;
+  border-radius: 12px;
+  background: #41A8BF;
+  color: #081018;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 10px 22px rgba(65,168,191,.25);
+}
+.btn-primary:hover{ filter: brightness(1.06); }
+
+/* Logout vermelho */
+.btn-danger{
+  padding: .6rem 1rem;
+  border-radius: 12px;
+  background: #E14B4B;      /* vermelho */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(225,75,75,.25);
+}
+.btn-danger:hover{ filter: brightness(1.05); }
+
+/* ===== Ilustração ===== */
+.pf-illustration{ margin: 0; display: grid; place-items: center; }
+.pf-illustration img{
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  filter: drop-shadow(0 12px 34px rgba(0,0,0,.45));
+}
+
+/* ===== ATIVIDADES ===== */
+.pf-activities{ padding-top: 8px; }
+
+.pf-subtitle{
+  margin: 0 0 16px;
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  font-weight: 800;
+}
+
+/* grid de cards alinhado com o container */
+.act-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+/* card */
+.act-card{
+  display: grid;
+  grid-template-rows: 1fr auto;
+  background: #0B1A3B; /* levemente mais claro que o bg */
+  border: 1px solid rgba(133,242,231,.12);
+  border-radius: 14px;
+  min-height: 160px;
+  overflow: hidden;
+}
+.act-body{ padding: 14px 14px 10px; }
+.act-title{ margin: 0 0 4px; font-size: 1rem; font-weight: 800; }
+.act-meta{ margin: 0; opacity: .88; font-size: .9rem; }
+
+.act-footer{ background: #41A8BF; padding: 10px 14px; }
+.act-link{ color: #081018; font-weight: 800; text-decoration: none; }
+.act-link:hover{ text-decoration: underline; }
+
+/* botão voltar com respiro */
+.pf-bottom{
+  display: flex;
+  justify-content: center;
+  margin-top: 28px; /* distância dos cards */
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 1100px){
+  .pf-hero{ column-gap: 40px; }
+  .act-grid{ grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 900px){
+  .pf-hero{
+    grid-template-columns: 1fr;  /* empilha hero */
+    row-gap: 24px;
+  }
+  .pf-illustration img{ max-width: 320px; }
+  .act-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px){
+  .act-grid{ grid-template-columns: 1fr; }
+  .pf-bottom{ margin-top: 22px; }
+}
