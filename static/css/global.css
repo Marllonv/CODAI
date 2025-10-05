@@ -12,4 +12,12 @@ html, body {
     width: 100%;
     min-height: 100vh;
     padding: 0 4vw;
+    overflow-x: hidden;
 }
+/* 
+#030C26 - azul escuro
+#DCE2F2 - branco-acinzentado?
+#41A8BF - azul um pouco mais claro
+#85F2E7 - azul claro
+#262626 - cinza escuro(quase preto)
+*/

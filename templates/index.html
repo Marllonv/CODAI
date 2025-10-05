@@ -1,11 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"> 
+    <!-- css -->
+    <link rel="stylesheet" href="../static/css/global.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>Codaí</title>
 </head>
 <body>
+    <!-- Header com o usuário com registro -->
+    <header id="header-home">
+        <img src="../static/image/logo-nome.png" alt="codaí-logo">
+        <div class="buttons-header">
+            <a class="links-header">Home</a>
+            <a class="links-header">Blog</a>
+            <a class="links-header">Forúm</a>
+            <a href="../templates/auth/perfil.html">
+            <img src="../static/image/account_circle_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="icone de perfil" id="icon-perfil"></a>
+        </div>
+    </header>
+
+    <main>
+        <h1 class="apresentation-title">Aprenda Programação <br>do ZERO</h1>
+        <p class="text">Aprenda programação de forma simples e colaborativa com guias básicos em linguagem acessível e uma comunidade para trocar experiências entre iniciantes e pessoas mais experientes.</p>
+        <a href="" id="start-button">Começar</a>
+    </main>
+
+    <section class="grid-post-guias">
+        
+        <div class="posts-list">
+            <h2 class="title-grid">Últimos Posts</h2>
+            <div class="post-cards">
+                <h3 id="title-card-post">Minha Experiência com JS</h3>
+                <div class="date-and-seepost">
+                    <p class="date-post">00/00/0000</p>
+                    <a href="" class="see-post">Ver Post</a>
+                </div>
+            </div>
+            <div class="post-cards">
+                <h3 id="title-card-post">Minha Experiência com JS</h3>
+                <div class="date-and-seepost">
+                    <p class="date-post">00/00/0000</p>
+                    <a href="" class="see-post">Ver Post</a>
+                </div>
+            </div>
+            <div class="post-cards">
+                <h3 id="title-card-post">Minha Experiência com JS</h3>
+                <div class="date-and-seepost">
+                    <p class="date-post">00/00/0000</p>
+                    <a href="" class="see-post">Ver Post</a>
+                </div>
+            </div>
+            <div class="post-cards">
+                <h3 id="title-card">Minha Experiência com JS</h3>
+                <div class="date-and-seepost">
+                    <p class="date-post">00/00/0000</p>
+                    <a href="" class="see-post">Ver Post</a>
+                </div>
+            </div>
+            <a href="" id="ver-mais-post">Ver mais</a>
+        </div>
+        <div class="guias-list">
+            <h2 class="title-grid">Artigos e Guias</h2>
+            <div class="guia-cards">
+                <img src="../static/image/codificacao-de-programa-de-computador-na-tela.jpg" alt="imagem do guia">
+                <div class="more-detals">
+                    <h3 id="title-card">Introdução a Lógica de Programação</h3>
+                    <a href="" class="see-post">Ver mais ></a>
+                </div>
+            </div>
+            <div class="guia-cards">
+                <img src="../static/image/codificacao-de-programa-de-computador-na-tela.jpg" alt="imagem do guia">
+                <div class="more-detals">
+                    <h3 id="title-card">Introdução a Lógica de Programação</h3>
+                    <a href="" class="see-post">Ver mais ></a>
+                </div>
+            </div>
+            <a href="" id="ver-mais-guias">Ver mais</a>
+        </div>
+    </section>
+
+    <section id="depoiments">
+        <div class="card-depoiments">
+            <h3 id="name-person">Nome da Pessoa</h3>
+            <p id="depoiment-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."</p>
+        </div>
+        <div class="card-depoiments">
+            <h3 id="name-person">Nome da Pessoa</h3>
+            <p id="depoiment-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."</p>
+        </div>
+        <div class="card-depoiments">
+            <h3 id="name-person">Nome da Pessoa</h3>
+            <p id="depoiment-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."</p>
+        </div>
+        
+    </section>
     
 </body>
 </html>

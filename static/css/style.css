@@ -1,0 +1,220 @@
+#header-home {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+#header-home img {
+    height: 40px;
+    max-width: 100%;
+}
+
+.buttons-header {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px; 
+}
+
+.buttons-header .links-header {
+    cursor: pointer;
+    transition: 0.3s;
+}
+.buttons-header .links-header:hover {
+    border-bottom: 1px solid white;
+}
+
+.buttons-header #icon-perfil {
+    height: 40px;
+    max-width: auto;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* FIM DO HEADER */
+
+main{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    margin-bottom: 50px;
+}
+main .apresentation-title{
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+main .text{
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: 100;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 0 100px;
+}
+
+main #start-button{
+    text-decoration: none;
+    background-color: #41A8BF;
+    color: #262626;
+    font-weight: bolder;
+    padding: 10px 2rem;
+    box-shadow: -4px 4px 1px #41a8bf4b;
+    transition: 0.3s;
+}
+main #start-button:hover{
+    
+    background-color: #85F2E7;
+    box-shadow: -8px 8px 8px #41a8bf7c;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.grid-post-guias {
+    background-color: #02081a77;
+    border-radius: 16px;
+    border: 1px solid #41a8bf42;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 150px;
+    width: 100%;
+    padding: 50px 4vw;
+}
+
+.posts-list, .guias-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.posts-list .title-grid, .guias-list .title-grid{
+    margin-bottom: 10px ;
+}
+
+.posts-list .post-cards{
+    border: 1px solid #41A8BF;
+    padding: 15px;
+    margin-top: 20px;
+}
+.posts-list .post-cards:hover{
+    box-shadow: -4px 4px 8px #41a8bf7c;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.posts-list .post-cards .date-and-seepost{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+.posts-list .post-cards .date-and-seepost .see-post{
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+    transition: 0.3s;
+    font-size: 0.8rem;
+}
+.posts-list .post-cards .date-and-seepost .see-post:hover{
+    color: #85F2E7;
+    border-bottom: 1px solid #85F2E7;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.posts-list #ver-mais-post{
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 20px;
+}
+.posts-list #ver-mais-post:hover{
+    color: #85F2E7;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.guias-list .guia-cards {
+    border: 1px solid #41A8BF;
+    margin-top: 20px;
+    height: 188px;  
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;  
+}
+.guias-list .guia-cards:hover{
+    box-shadow: -4px 4px 8px #41a8bf7c;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.guias-list .guia-cards img {
+    width: 100%;
+    height: 55%;  
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+.guia-cards .more-detals{
+    background-color: #41A8BF;
+    flex: 1;    
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 15px;
+}
+.guia-cards .more-detals #title-card{
+    font-size: 1rem;
+    padding-bottom: 15px;
+}
+.guia-cards .more-detals .see-post{
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bolder;
+    transition: 0.3s;
+    font-size: 0.8rem;
+}
+.guia-cards .more-detals .see-post:hover{
+    color: #85F2E7;
+    border-bottom: 1px solid #85F2E7;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.guias-list #ver-mais-guias{
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 20px;
+}
+.guias-list #ver-mais-guias:hover{
+    color: #85F2E7;
+    transition: 0.3s;
+    cursor: pointer;
+}
+#depoiments{
+    margin: 50px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
+}
+#depoiments .card-depoiments{
+    border: 1px solid #41A8BF;
+    padding: 10px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+#depoiments .card-depoiments #depoiment-text{
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 10px;
+}
