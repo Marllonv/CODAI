@@ -1,50 +1,44 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Login — CODAÍ</title>
+{% extends 'base.html' %}
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="/static/css/global.css">
-  <link rel="stylesheet" href="/static/css/login.css">
-</head>
-<body>
-  <main class="log-page">
+{% block title %}Login — CODAÍ{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block content %}
+<main class="log-page">
     <!-- Lado esquerdo (igual ao cadastro) -->
     <section class="log-left">
-      <header class="log-brand">
-        <img src="/static/image/logo-nome.png" alt="CODAÍ" height="28">
-      </header>
+        <header class="log-brand">
+            <img src="{{ url_for('static', filename='image/logo-nome.png') }}" alt="CODAÍ" height="28">
+        </header>
 
-      <figure class="log-art">
-        <!-- troque o nome do arquivo se for diferente -->
-        <img src="/static/image/fotoLoginn.png"
-             alt="Ilustração de acesso seguro">
-      </figure>
+        <figure class="log-art">
+            <img src="{{ url_for('static', filename='image/fotoLoginn.png') }}" alt="Ilustração de acesso seguro">
+        </figure>
     </section>
 
     <!-- Lado direito (card) -->
     <section class="log-right">
-      <div class="log-card">
-        <h1 class="log-title">Acessar sua conta</h1>
+        <div class="log-card">
+            <h1 class="log-title">Acessar sua conta</h1>
 
-        <form class="log-form" action="/login" method="POST">
-          <label class="log-label" for="email">Email</label>
-          <input class="log-input" type="email" id="email" name="email" placeholder="voce@email.com" required>
+            <form class="log-form" action="{{ url_for('auth.login') }}" method="POST">
+                <label class="log-label" for="email">Email</label>
+                <input class="log-input" type="email" id="email" name="email" placeholder="voce@email.com" required>
 
-          <label class="log-label" for="password">Senha</label>
-          <input class="log-input" type="password" id="password" name="password" placeholder="********" required>
+                <label class="log-label" for="password">Senha</label>
+                <input class="log-input" type="password" id="password" name="password" placeholder="********" required>
 
-          <button class="log-btn" type="submit">Entrar</button>
+                <button class="log-btn" type="submit">Entrar</button>
 
-          <p class="log-helper">
-            Não tem uma conta?
-            <a class="log-link" href="/templates/auth/cadastro.html">Cadastre-se</a>
-          </p>
-        </form>
-      </div>
+                <p class="log-helper">
+                    Não tem uma conta?
+                    <a class="log-link" href="{{ url_for('auth.cadastro') }}">Cadastre-se</a>
+                </p>
+            </form>
+        </div>
     </section>
-  </main>
-</body>
-</html>
+</main>
+{% endblock %}
