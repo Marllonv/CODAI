@@ -10,10 +10,6 @@
 <main class="log-page">
     <!-- Lado esquerdo (igual ao cadastro) -->
     <section class="log-left">
-        <header class="log-brand">
-            <img src="{{ url_for('static', filename='image/logo-nome.png') }}" alt="CODAÍ" height="28">
-        </header>
-
         <figure class="log-art">
             <img src="{{ url_for('static', filename='image/fotoLoginn.png') }}" alt="Ilustração de acesso seguro">
         </figure>
@@ -35,7 +31,7 @@
 
                 <p class="log-helper">
                     Não tem uma conta?
-                    <a class="log-link" href="{{ url_for('auth.cadastro') }}">Cadastre-se</a>
+                    <a class="log-link" href="{{ url_for('auth.register') }}">Cadastre-se</a>
                 </p>
             </form>
         </div>

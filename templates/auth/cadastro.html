@@ -9,11 +9,6 @@
 {% block content %}
 <main class="cad-page">
     <!-- Lado esquerdo -->
-    <section class="cad-left">
-        <header class="cad-brand">
-            <img src="{{ url_for('static', filename='image/logo-nome.png') }}" alt="CODAÍ" height="28">
-        </header>
-
         <figure class="cad-art">
             <img src="{{ url_for('static', filename='image/Data_security.png') }}" alt="Ilustração de segurança">
         </figure>
@@ -24,7 +19,7 @@
         <div class="cad-card">
             <h1 class="cad-title">Criar uma conta</h1>
 
-            <form class="cad-form" method="post" action="{{ url_for('auth.cadastro') }}">
+            <form class="cad-form" method="post" action="{{ url_for('auth.register') }}">
                 <label class="cad-label" for="name">Nome</label>
                 <input class="cad-input" id="name" name="name" type="text" placeholder="Seu nome completo" required>
 
@@ -57,7 +52,7 @@
         <p class="modal__desc">Seu cadastro foi realizado com sucesso.</p>
 
         <div class="modal__actions">
-            <a href="{{ url_for('index') }}" class="modal__btn">Ir para home</a>
+            <a href="{{ url_for('home') }}" class="modal__btn">Ir para home</a>
             <button class="modal__close" type="button" data-dismiss>Fechar</button>
         </div>
     </div>

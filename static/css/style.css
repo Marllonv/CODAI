@@ -36,21 +36,22 @@
 
 /* FIM DO HEADER */
 
-main{
+#apresentation {
     margin-top: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 50px;  
 }
-main .apresentation-title{
+
+#apresentation .apresentation-title{
     font-size: 50px;
     text-align: center;
     margin-bottom: 2rem;
 }
-main .text{
+#apresentation .text{
     font-size: 20px;
     text-decoration: none;
     font-weight: 100;
@@ -59,7 +60,7 @@ main .text{
     padding: 0 100px;
 }
 
-main #start-button{
+#apresentation #start-button{
     text-decoration: none;
     background-color: #41A8BF;
     color: #262626;
@@ -68,7 +69,7 @@ main #start-button{
     box-shadow: -4px 4px 1px #41a8bf4b;
     transition: 0.3s;
 }
-main #start-button:hover{
+#apresentation #start-button:hover{
     
     background-color: #85F2E7;
     box-shadow: -8px 8px 8px #41a8bf7c;
