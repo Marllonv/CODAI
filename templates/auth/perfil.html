@@ -9,10 +9,6 @@
 {% block content %}
 <main class="perfil pf-shell">
     <div class="pf-container">
-        <!-- TOPO (logo no canto) -->
-        <header class="pf-top">
-            <img src="{{ url_for('static', filename='image/logo-nome.png') }}" alt="CODAÍ" class="pf-logo">
-        </header>
 
         <!-- HERO (Minha Conta + Ilustração) -->
         <section class="pf-hero">
@@ -33,7 +29,8 @@
                 </div>
             </div>
             <figure class="pf-illustration">
-                <img src="{{ url_for('static', filename='image/screen03 1.png') }}" alt="Ilustração de perfil e segurança">
+                <img src="{{ url_for('static', filename='image/screen03 1.png') }}"
+                    alt="Ilustração de perfil e segurança">
             </figure>
         </section>
 
@@ -44,3 +41,13 @@
                 {% for atividade in atividades %}
                 <article class="act-card">
                     <div class="act-body">
+                        <h3>{{ atividade.titulo }}</h3>
+                        <p>{{ atividade.descricao }}</p>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+</main>
+{% endblock %}

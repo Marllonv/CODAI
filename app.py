@@ -20,22 +20,34 @@ def create_app():
     app.register_blueprint(auth_bp)
     # app.register_blueprint(users_bp)
     
+    # Criação do banco + usuário master
     with app.app_context():
         db.create_all()
         if not User.query.filter_by(email="admin@codai.com").first():
-             master = User(
-                 nome="Admin Master",
-                 email="admin@codai.com",
-                 role="master"
-             )
-             master.set_password("123456")
-             db.session.add(master)
-             db.session.commit()
+            master = User(
+                nome="Admin Master",
+                email="admin@codai.com",
+                role="master"
+            )
+            master.set_password("123456")
+            db.session.add(master)
+            db.session.commit()
 
-    # Rota principal
+    # 🏠 Rota principal
     @app.route("/")
     def home():
-        return render_template("home.html")
+        # Envia listas vazias para evitar erros no template
+        posts = []
+        guias = []
+        depoimentos = []
+
+        # Renderiza passando os contextos esperados
+        return render_template(
+            "home.html",
+            posts=posts,
+            guias=guias,
+            depoimentos=depoimentos
+        )
 
     return app
 
