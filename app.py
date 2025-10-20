@@ -3,12 +3,11 @@ from models.users import db, User
 from extensions import login_manager
 from routes.auth import auth_bp
 from routes.main import main_bp
-# from routes.users import users_bp
 
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'sua_chave_secreta'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///seloedu.db'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///codai.db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     db.init_app(app)
