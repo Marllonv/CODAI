@@ -19,7 +19,6 @@ def create_app():
     
     app.register_blueprint(auth_bp)
     app.register_blueprint(main_bp)
-    # app.register_blueprint(users_bp)
     
     with app.app_context(): 
         db.create_all()
@@ -32,16 +31,12 @@ def create_app():
             master.set_password("123456")
             db.session.add(master)
             db.session.commit()
-
-    # 🏠 Rota principal
     @app.route("/")
     def home():
-        # Envia listas vazias para evitar erros no template
         posts = []
         guias = []
         depoimentos = []
 
-        # Renderiza passando os contextos esperados
         return render_template(
             "home.html",
             posts=posts,
