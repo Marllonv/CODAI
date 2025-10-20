@@ -2,6 +2,7 @@ from flask import Flask, render_template
 from models.users import db, User
 from extensions import login_manager
 from routes.auth import auth_bp
+from routes.main import main_bp
 # from routes.users import users_bp
 
 def create_app():
@@ -18,9 +19,10 @@ def create_app():
         return User.query.get(int(user_id))
     
     app.register_blueprint(auth_bp)
+    app.register_blueprint(main_bp)
     # app.register_blueprint(users_bp)
     
-    with app.app_context():
+    with app.app_context(): 
         db.create_all()
         if not User.query.filter_by(email="admin@codai.com").first():
              master = User(

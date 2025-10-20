@@ -219,3 +219,76 @@
     text-align: center;
     margin-top: 10px;
 }
+
+/* ==== RODAPÉ ==== */
+
+.codai-rodape {
+    background-color: #010a1a;
+    color: #e0f7fa;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-top: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.codai-rodape-conteudo {
+    max-width: 1100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.codai-rodape-logo img {
+    width: 150px;
+}
+
+.codai-rodape p {
+    font-size: 0.95rem;
+    color: #b3dbe2;
+    margin: 0;
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+.codai-social-secao {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.codai-social-secao span {
+    font-weight: 600;
+    color: #4ff3ff;
+}
+
+.codai-social-secao a img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.codai-social-secao a img:hover {
+    transform: scale(1.15);
+    filter: brightness(1.3);
+}
+
+.codai-copyright {
+    margin-top: 25px;
+    font-size: 0.8rem;
+    color: #85b9c1;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .codai-rodape-conteudo {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}

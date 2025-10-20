@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block title %}Codaí - Home{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/forum.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="forum-main">
+    <section class="forum-hero">
+      <h1>Fórum Codai</h1>
+      <p>
+        Este espaço foi criado especialmente para quem está começando ou aprimorando seus conhecimentos em programação.
+        Compartilhe dúvidas, aprendizados e experiências com outros alunos e desenvolvedores. Aqui, todos estão aprendendo juntos!
+      </p>
+
+      <!-- BARRA DE INDICADORES -->
+      <div class="forum-dots">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <button class="forum-btn">Faça uma postagem</button>
+      <input type="text" placeholder="Digite aqui a sua dúvida, experiência ou descoberta..." class="forum-input">
+    </section>
+
+    <!-- POSTAGENS -->
+    <section class="forum-posts">
+      <h2>Últimas postagens</h2>
+      <div class="forum-grid">
+        <!-- Post 1 -->
+        <div class="forum-card">
+          <img src="/static/image/account_circle_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Usuário">
+          <div class="forum-card-content">
+            <h3>Minha Experiência com JavaScript</h3>
+            <p>Compartilho aqui como comecei a estudar JavaScript e quais recursos me ajudaram mais nesse processo.</p>
+            <span class="forum-tag">#javascript</span>
+          </div>
+        </div>
+
+        <!-- Post 2 (Destaque) -->
+        <div class="forum-card highlight">
+          <img src="/static/image/account_circle_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Usuário">
+          <div class="forum-card-content">
+            <h3>Dicas para React Iniciantes</h3>
+            <p>Algumas dicas valiosas para quem está começando com React e quer evitar armadilhas comuns.</p>
+            <span class="forum-tag">#react</span>
+          </div>
+        </div>
+
+        <!-- Post 3 -->
+        <div class="forum-card">
+          <img src="/static/image/account_circle_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Usuário">
+          <div class="forum-card-content">
+            <h3>Como organizar estudos em Python</h3>
+            <p>Compartilho minha jornada de aprendizado em Python e como organizei meus estudos de forma eficiente.</p>
+            <span class="forum-tag">#python</span>
+          </div>
+        </div>
+
+        <!-- Post 4 -->
+        <div class="forum-card">
+          <img src="/static/image/account_circle_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Usuário">
+          <div class="forum-card-content">
+            <h3>Recursos gratuitos para Front-end</h3>
+            <p>Lista com os melhores recursos gratuitos para aprender desenvolvimento front-end em 2023.</p>
+            <span class="forum-tag">#frontend</span>
+          </div>
+        </div>
+
+        <!-- Post 5 -->
+        <div class="forum-card">
+          <img src="/static/image/account_circle_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Usuário">
+          <div class="forum-card-content">
+            <h3>Desafios com Git e GitHub</h3>
+            <p>Compartilho os principais desafios que enfrentei ao aprender Git e GitHub e como os superei.</p>
+            <span class="forum-tag">#git</span>
+          </div>
+        </div>
+
+        <!-- Post 6 -->
+        <div class="forum-card">
+          <img src="/static/image/account_circle_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Usuário">
+          <div class="forum-card-content">
+            <h3>Carreira em Data Science</h3>
+            <p>Minha transição de carreira para Data Science e os principais aprendizados no caminho.</p>
+            <span class="forum-tag">#datascience</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+{% endblock %}
+
