@@ -9,10 +9,9 @@
 {% block content %}
 <main class="cad-page">
     <!-- Lado esquerdo -->
-        <figure class="cad-art">
-            <img src="{{ url_for('static', filename='image/Data_security.png') }}" alt="Ilustração de segurança">
-        </figure>
-    </section>
+    <figure class="cad-art">
+        <img src="{{ url_for('static', filename='image/Data_security.png') }}" alt="Ilustração de segurança">
+    </figure>
 
     <!-- Lado direito (form) -->
     <section class="cad-right">
@@ -20,8 +19,8 @@
             <h1 class="cad-title">Criar uma conta</h1>
 
             <form class="cad-form" method="post" action="{{ url_for('auth.register') }}">
-                <label class="cad-label" for="name">Nome</label>
-                <input class="cad-input" id="name" name="name" type="text" placeholder="Seu nome completo" required>
+                <label class="cad-label" for="nome">Nome</label>
+                <input class="cad-input" id="nome" name="nome" type="text" placeholder="Seu nome completo" required>
 
                 <label class="cad-label" for="email">Email</label>
                 <input class="cad-input" id="email" name="email" type="email" placeholder="voce@email.com" required>
@@ -32,7 +31,7 @@
                 <label class="cad-label" for="confirm">Confirmação de Senha</label>
                 <input class="cad-input" id="confirm" name="confirm" type="password" placeholder="********" required>
 
-                <button class="cad-btn" type="submit">Entrar</button>
+                <button class="cad-btn" type="submit">Cadastrar</button>
 
                 <p class="cad-helper">
                     Já tem conta?
