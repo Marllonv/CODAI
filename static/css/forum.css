@@ -12,10 +12,6 @@ body.forum-body {
 
 /* Remove qualquer margem de container geral */
 html, body, main {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  max-width: 100%;
   box-sizing: border-box;
 }
 

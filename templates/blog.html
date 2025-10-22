@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block title %}Codaí - Blog{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/blog.css') }}">
+{% endblock %}
+
+{% block content %}
+  <div class="blog-main">
+    <section class="blog-hero">
+      <h1>Blog Codai</h1>
+      <p>
+        Artigos didáticos e tutoriais para ajudar estudantes e desenvolvedores a evoluir suas habilidades.
+        Encontre guias, explicações passo a passo e materiais práticos para aprender de forma consistente.
+      </p>
+
+      <div class="blog-dots">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <button class="blog-btn">Escrever artigo</button>
+      <input type="text" placeholder="Pesquisar artigos, temas ou autores..." class="blog-input">
+    </section>
+
+    <section class="blog-articles">
+      <h2>Últimos artigos</h2>
+      <div class="blog-grid">
+        <article class="blog-card">
+          <img src="/static/image/article_thumbnail_1.svg" alt="Miniatura">
+          <div class="blog-card-content">
+            <h3>Introdução ao JavaScript moderno</h3>
+            <p>Conceitos essenciais, práticas recomendadas e exercícios para começar a programar com JS.</p>
+            <div class="article-meta">Por Ana Silva • 7 min</div>
+            <span class="blog-tag">#javascript</span>
+          </div>
+        </article>
+
+        <article class="blog-card highlight">
+          <img src="/static/image/article_thumbnail_2.svg" alt="Miniatura">
+          <div class="blog-card-content">
+            <h3>Guia prático de React Hooks</h3>
+            <p>Entenda useState, useEffect e outros hooks através de exemplos aplicados e fáceis de seguir.</p>
+            <div class="article-meta">Por Bruno Costa • 10 min</div>
+            <span class="blog-tag">#react</span>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <img src="/static/image/article_thumbnail_3.svg" alt="Miniatura">
+          <div class="blog-card-content">
+            <h3>Organizando estudos em Python</h3>
+            <p>Estratégias de estudo, recursos e exercícios para progredir em Python de forma sólida.</p>
+            <div class="article-meta">Por Carla Mendes • 6 min</div>
+            <span class="blog-tag">#python</span>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <img src="/static/image/article_thumbnail_4.svg" alt="Miniatura">
+          <div class="blog-card-content">
+            <h3>CSS moderno: layout responsivo</h3>
+            <p>Como usar Grid e Flexbox para criar layouts adaptativos e acessíveis.</p>
+            <div class="article-meta">Por Diego Almeida • 8 min</div>
+            <span class="blog-tag">#css</span>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <img src="/static/image/article_thumbnail_5.svg" alt="Miniatura">
+          <div class="blog-card-content">
+            <h3>Controle de versão com Git</h3>
+            <p>Fluxos de trabalho, boas práticas e comandos essenciais para trabalhar com Git em projetos reais.</p>
+            <div class="article-meta">Por Elisa Rocha • 9 min</div>
+            <span class="blog-tag">#git</span>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <img src="/static/image/article_thumbnail_6.svg" alt="Miniatura">
+          <div class="blog-card-content">
+            <h3>Introdução a Data Science</h3>
+            <p>Conceitos, ferramentas e um roteiro de aprendizado para começar em ciência de dados.</p>
+            <div class="article-meta">Por Felipe Santos • 11 min</div>
+            <span class="blog-tag">#datascience</span>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+{% endblock %}

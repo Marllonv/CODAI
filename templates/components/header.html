@@ -1,0 +1,15 @@
+<header id="header-home">
+    <div id="nav-bar">
+        <img src="{{ url_for('static', filename='image/logo-nome.png') }}" alt="codaí-logo">
+        <div class="buttons-header">
+            <a class="links-header {% if request.path == url_for('home') %}active{% endif %}" href="{{ url_for('home') }}">Home</a>
+            <a class="links-header {% if request.path == url_for('main.blog') %}active{% endif %}" href="{{ url_for('main.blog') }}">Blog</a>
+            <a class="links-header {% if request.path == url_for('main.forum') %}active{% endif %}" href="{{ url_for('main.forum') }}">Fórum</a>
+            {% if current_user.is_authenticated %}
+                <a class="links-header {% if request.path == url_for('auth.perfil') %}active{% endif %}" href="{{ url_for('auth.perfil') }}">
+                    <img src="{{ url_for('static', filename='image/account_circle_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg') }}" alt="icone de perfil" id="icon-perfil">
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</header>
