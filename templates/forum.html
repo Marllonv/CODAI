@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Codaí - Home{% endblock %}
+{% block title %}Codaí - Fórum{% endblock %}
 {% block styles %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/forum.css') }}">
 {% endblock %}
@@ -19,73 +19,51 @@
         <span></span><span></span><span></span><span></span><span></span>
       </div>
 
-      <button class="forum-btn">Faça uma postagem</button>
+      <a href="{{ url_for('forum.create_post') }}" class="forum-btn">Faça uma postagem</a>
       <input type="text" placeholder="Digite aqui a sua dúvida, experiência ou descoberta..." class="forum-input">
+    </section>
+
+    <!-- FILTROS POR CATEGORIA -->
+    <section class="forum-filters">
+      <h3>Filtrar por categoria:</h3>
+      <div class="category-filters">
+        <a href="{{ url_for('forum.index') }}" class="filter-btn {% if not selected_category %}active{% endif %}">Todas</a>
+        {% for category in categories %}
+        <a href="{{ url_for('forum.posts_by_category', category_id=category.id) }}"
+           class="filter-btn {% if selected_category and selected_category.id == category.id %}active{% endif %}"
+           data-color="{{ category.color|default('#ccc') }}">
+          #{{ category.name }}
+        </a>
+        {% endfor %}
+      </div>
     </section>
 
     <!-- POSTAGENS -->
     <section class="forum-posts">
       <h2>Últimas postagens</h2>
       <div class="forum-grid">
-        <!-- Post 1 -->
-        <div class="forum-card">
+        {% for post in posts %}
+        <div class="forum-card {% if post.is_highlighted %}highlight{% endif %}">
           <img src="/static/image/account_circle_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Usuário">
           <div class="forum-card-content">
-            <h3>Minha Experiência com JavaScript</h3>
-            <p>Compartilho aqui como comecei a estudar JavaScript e quais recursos me ajudaram mais nesse processo.</p>
-            <span class="forum-tag">#javascript</span>
+            <h3><a href="{{ url_for('forum.view_post', post_id=post.id) }}">{{ post.title }}</a></h3>
+            <p>{{ post.content[:150] }}{% if post.content|length > 150 %}...{% endif %}</p>
+            <div class="post-meta">
+              <span class="forum-tag" data-color="{{ post.category.color }}">#{{ post.category.name }}</span>
+              <span class="post-author">por {{ post.user.nome }}</span>
+              <span class="post-date">{{ post.created_at.strftime('%d/%m/%Y') }}</span>
+              <span class="comments-count">{{ post.comments|length }} comentário(s)</span>
+            </div>
           </div>
         </div>
-
-        <!-- Post 2 (Destaque) -->
-        <div class="forum-card highlight">
-          <img src="/static/image/account_circle_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Usuário">
-          <div class="forum-card-content">
-            <h3>Dicas para React Iniciantes</h3>
-            <p>Algumas dicas valiosas para quem está começando com React e quer evitar armadilhas comuns.</p>
-            <span class="forum-tag">#react</span>
-          </div>
+        {% endfor %}
+        
+        {% if not posts %}
+        <div class="no-posts">
+          <p>Nenhum post encontrado. Seja o primeiro a compartilhar algo!</p>
+          <a href="{{ url_for('forum.create_post') }}" class="forum-btn">Criar primeiro post</a>
         </div>
-
-        <!-- Post 3 -->
-        <div class="forum-card">
-          <img src="/static/image/account_circle_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Usuário">
-          <div class="forum-card-content">
-            <h3>Como organizar estudos em Python</h3>
-            <p>Compartilho minha jornada de aprendizado em Python e como organizei meus estudos de forma eficiente.</p>
-            <span class="forum-tag">#python</span>
-          </div>
-        </div>
-
-        <!-- Post 4 -->
-        <div class="forum-card">
-          <img src="/static/image/account_circle_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Usuário">
-          <div class="forum-card-content">
-            <h3>Recursos gratuitos para Front-end</h3>
-            <p>Lista com os melhores recursos gratuitos para aprender desenvolvimento front-end em 2023.</p>
-            <span class="forum-tag">#frontend</span>
-          </div>
-        </div>
-
-        <!-- Post 5 -->
-        <div class="forum-card">
-          <img src="/static/image/account_circle_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Usuário">
-          <div class="forum-card-content">
-            <h3>Desafios com Git e GitHub</h3>
-            <p>Compartilho os principais desafios que enfrentei ao aprender Git e GitHub e como os superei.</p>
-            <span class="forum-tag">#git</span>
-          </div>
-        </div>
-
-        <!-- Post 6 -->
-        <div class="forum-card">
-          <img src="/static/image/account_circle_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Usuário">
-          <div class="forum-card-content">
-            <h3>Carreira em Data Science</h3>
-            <p>Minha transição de carreira para Data Science e os principais aprendizados no caminho.</p>
-            <span class="forum-tag">#datascience</span>
-          </div>
-        </div>
+        {% endif %}
       </div>
     </section>
   </div>

@@ -14,76 +14,59 @@
         Encontre guias, explicações passo a passo e materiais práticos para aprender de forma consistente.
       </p>
 
+      <!-- BARRA DE INDICADORES -->
       <div class="blog-dots">
         <span></span><span></span><span></span><span></span><span></span>
       </div>
 
-      <button class="blog-btn">Escrever artigo</button>
-      <input type="text" placeholder="Pesquisar artigos, temas ou autores..." class="blog-input">
+      <a href="{{ url_for('blog.create_article') }}" class="blog-btn">Escrever artigo</a>
+      <form action="{{ url_for('blog.search') }}" method="GET" class="search-form">
+        <input type="text" name="q" placeholder="Pesquisar artigos, temas ou autores..." class="blog-input" value="{{ search_query or '' }}">
+      </form>
     </section>
 
+    <!-- FILTROS POR CATEGORIA -->
+    <section class="blog-filters">
+      <h3>Filtrar por categoria:</h3>
+      <div class="category-filters">
+        <a href="{{ url_for('blog.index') }}" class="filter-btn {% if not selected_category %}active{% endif %}">Todas</a>
+        {% for category in categories %}
+        <a href="{{ url_for('blog.articles_by_category', category_id=category.id) }}"
+           class="filter-btn {% if selected_category and selected_category.id == category.id %}active{% endif %}"
+           data-color="{{ category.color|default('#ccc') }}">
+          #{{ category.name }}
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- ARTIGOS -->
     <section class="blog-articles">
       <h2>Últimos artigos</h2>
       <div class="blog-grid">
-        <article class="blog-card">
-          <img src="/static/image/article_thumbnail_1.svg" alt="Miniatura">
+        {% for article in articles %}
+        <article class="blog-card {% if article.is_featured %}highlight{% endif %}">
+          <img src="{{ article.thumbnail_url or '/static/image/article_thumbnail_1.svg' }}" alt="{{ article.title }}">
           <div class="blog-card-content">
-            <h3>Introdução ao JavaScript moderno</h3>
-            <p>Conceitos essenciais, práticas recomendadas e exercícios para começar a programar com JS.</p>
-            <div class="article-meta">Por Ana Silva • 7 min</div>
-            <span class="blog-tag">#javascript</span>
+            <h3><a href="{{ url_for('blog.view_article', article_id=article.id) }}">{{ article.title }}</a></h3>
+            <p>{{ article.excerpt or article.content[:150] }}{% if article.content|length > 150 and not article.excerpt %}...{% endif %}</p>
+            <div class="article-meta">
+              <span class="blog-tag" data-color="{{ article.category.color }}">#{{ article.category.name }}</span>
+              <span class="article-author">por {{ article.author.nome }}</span>
+              <span class="article-date">{{ article.created_at.strftime('%d/%m/%Y') }}</span>
+              <span class="reading-time">{{ article.reading_time }} min</span>
+              <span class="view-count">{{ article.view_count }} visualizações</span>
+            </div>
           </div>
         </article>
-
-        <article class="blog-card highlight">
-          <img src="/static/image/article_thumbnail_2.svg" alt="Miniatura">
-          <div class="blog-card-content">
-            <h3>Guia prático de React Hooks</h3>
-            <p>Entenda useState, useEffect e outros hooks através de exemplos aplicados e fáceis de seguir.</p>
-            <div class="article-meta">Por Bruno Costa • 10 min</div>
-            <span class="blog-tag">#react</span>
-          </div>
-        </article>
-
-        <article class="blog-card">
-          <img src="/static/image/article_thumbnail_3.svg" alt="Miniatura">
-          <div class="blog-card-content">
-            <h3>Organizando estudos em Python</h3>
-            <p>Estratégias de estudo, recursos e exercícios para progredir em Python de forma sólida.</p>
-            <div class="article-meta">Por Carla Mendes • 6 min</div>
-            <span class="blog-tag">#python</span>
-          </div>
-        </article>
-
-        <article class="blog-card">
-          <img src="/static/image/article_thumbnail_4.svg" alt="Miniatura">
-          <div class="blog-card-content">
-            <h3>CSS moderno: layout responsivo</h3>
-            <p>Como usar Grid e Flexbox para criar layouts adaptativos e acessíveis.</p>
-            <div class="article-meta">Por Diego Almeida • 8 min</div>
-            <span class="blog-tag">#css</span>
-          </div>
-        </article>
-
-        <article class="blog-card">
-          <img src="/static/image/article_thumbnail_5.svg" alt="Miniatura">
-          <div class="blog-card-content">
-            <h3>Controle de versão com Git</h3>
-            <p>Fluxos de trabalho, boas práticas e comandos essenciais para trabalhar com Git em projetos reais.</p>
-            <div class="article-meta">Por Elisa Rocha • 9 min</div>
-            <span class="blog-tag">#git</span>
-          </div>
-        </article>
-
-        <article class="blog-card">
-          <img src="/static/image/article_thumbnail_6.svg" alt="Miniatura">
-          <div class="blog-card-content">
-            <h3>Introdução a Data Science</h3>
-            <p>Conceitos, ferramentas e um roteiro de aprendizado para começar em ciência de dados.</p>
-            <div class="article-meta">Por Felipe Santos • 11 min</div>
-            <span class="blog-tag">#datascience</span>
-          </div>
-        </article>
+        {% endfor %}
+        
+        {% if not articles %}
+        <div class="no-articles">
+          <p>Nenhum artigo encontrado. Seja o primeiro a escrever algo!</p>
+          <a href="{{ url_for('blog.create_article') }}" class="blog-btn">Criar primeiro artigo</a>
+        </div>
+        {% endif %}
       </div>
     </section>
   </div>

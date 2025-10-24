@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}Codaí - Criar Artigo{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/blog.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="blog-main">
+  <section class="article-form-section">
+    <h1>Criar Novo Artigo</h1>
+    
+    <form method="POST" class="article-form">
+      <div class="form-group">
+        <label for="title">Título do Artigo</label>
+        <input type="text" id="title" name="title" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="excerpt">Resumo (opcional)</label>
+        <textarea id="excerpt" name="excerpt" rows="3" placeholder="Breve descrição do artigo..."></textarea>
+      </div>
+      
+      <div class="form-group">
+        <label for="category_id">Categoria</label>
+        <select id="category_id" name="category_id" required>
+          <option value="">Selecione uma categoria</option>
+          {% for category in categories %}
+          <option value="{{ category.id }}">{{ category.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label for="reading_time">Tempo de Leitura (minutos)</label>
+          <input type="number" id="reading_time" name="reading_time" value="5" min="1" max="60">
+        </div>
+        
+        <div class="form-group checkbox-group">
+          <label>
+            <input type="checkbox" name="is_featured" value="1">
+            Destacar artigo
+          </label>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="content">Conteúdo do Artigo</label>
+        <textarea id="content" name="content" rows="15" required placeholder="Escreva seu artigo aqui..."></textarea>
+      </div>
+      
+      <div class="form-actions">
+        <button type="submit" class="blog-btn">Publicar Artigo</button>
+        <a href="{{ url_for('blog.index') }}" class="blog-btn secondary">Cancelar</a>
+      </div>
+    </form>
+  </section>
+</div>
+{% endblock %}

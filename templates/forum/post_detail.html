@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }} - Codaí{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/forum.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="post-detail-container">
+    <div class="post-header">
+        <a href="{{ url_for('forum.index') }}" class="back-link">← Voltar ao fórum</a>
+        
+        {% if current_user.is_authenticated and (post.user_id == current_user.id or current_user.role == 'master') %}
+        <div class="post-actions">
+            <a href="{{ url_for('forum.edit_post', post_id=post.id) }}" class="btn-edit">Editar</a>
+            <form method="POST" action="{{ url_for('forum.delete_post', post_id=post.id) }}" 
+                  onsubmit="return confirm('Tem certeza que deseja deletar este post?')" style="display: inline;">
+                <button type="submit" class="btn-delete">Deletar</button>
+            </form>
+        </div>
+        {% endif %}
+    </div>
+    
+    <article class="post-content">
+        <div class="post-meta">
+            <span class="forum-tag" style="background-color: {{ post.category.color }};">#{{ post.category.name }}</span>
+            <span class="post-author">por {{ post.user.nome }}</span>
+            <span class="post-date">{{ post.created_at.strftime('%d/%m/%Y às %H:%M') }}</span>
+            {% if post.is_highlighted %}
+            <span class="highlight-badge">⭐ Destaque</span>
+            {% endif %}
+        </div>
+        
+        <h1>{{ post.title }}</h1>
+        <div class="post-body">
+            {{ post.content|replace('\n', '<br>')|safe }}
+        </div>
+        
+        {% if post.updated_at != post.created_at %}
+        <div class="post-updated">
+            <small>Atualizado em {{ post.updated_at.strftime('%d/%m/%Y às %H:%M') }}</small>
+        </div>
+        {% endif %}
+    </article>
+    
+    <section class="comments-section">
+        <h2>Comentários ({{ comments|length }})</h2>
+        
+        {% if current_user.is_authenticated %}
+        <form method="POST" action="{{ url_for('forum.add_comment', post_id=post.id) }}" class="comment-form">
+            <textarea name="content" placeholder="Escreva seu comentário..." required></textarea>
+            <button type="submit" class="btn-primary">Comentar</button>
+        </form>
+        {% else %}
+        <p class="login-prompt">
+            <a href="{{ url_for('auth.login') }}">Faça login</a> para comentar neste post.
+        </p>
+        {% endif %}
+        
+        <div class="comments-list">
+            {% for comment in comments %}
+            <div class="comment">
+                <div class="comment-header">
+                    <strong>{{ comment.user.nome }}</strong>
+                    <span class="comment-date">{{ comment.created_at.strftime('%d/%m/%Y às %H:%M') }}</span>
+                </div>
+                <div class="comment-body">
+                    {{ comment.content|replace('\n', '<br>')|safe }}
+                </div>
+            </div>
+            {% endfor %}
+            
+            {% if not comments %}
+            <p class="no-comments">Nenhum comentário ainda. Seja o primeiro a comentar!</p>
+            {% endif %}
+        </div>
+    </section>
+</div>
+{% endblock %}

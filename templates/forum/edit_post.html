@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Editar Post - Codaí{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/forum.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="edit-post-container">
+    <h1>Editar Post</h1>
+    
+    <form method="POST" class="post-form">
+        <div class="form-group">
+            <label for="title">Título:</label>
+            <input type="text" id="title" name="title" value="{{ post.title }}" required maxlength="200">
+        </div>
+        
+        <div class="form-group">
+            <label for="category_id">Categoria:</label>
+            <select id="category_id" name="category_id" required>
+                {% for category in categories %}
+                <option value="{{ category.id }}" {% if category.id == post.category_id %}selected{% endif %}>
+                    {{ category.name|title }}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="content">Conteúdo:</label>
+            <textarea id="content" name="content" required rows="10">{{ post.content }}</textarea>
+        </div>
+        
+        <div class="form-group">
+            <label class="checkbox-label">
+                <input type="checkbox" name="is_highlighted" value="1" {% if post.is_highlighted %}checked{% endif %}>
+                Destacar este post
+            </label>
+        </div>
+        
+        <div class="form-actions">
+            <button type="submit" class="btn-primary">Atualizar Post</button>
+            <a href="{{ url_for('forum.view_post', post_id=post.id) }}" class="btn-secondary">Cancelar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

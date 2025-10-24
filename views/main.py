@@ -1,4 +1,6 @@
 from flask import render_template
+from models.forum import Post, Category
+from models.blog import Article, ArticleCategory
 
 def home():
     """Lógica para a página inicial."""
@@ -6,8 +8,12 @@ def home():
 
 def forum():
     """Lógica para a página do fórum."""
-    return render_template("forum.html")
+    posts = Post.query.order_by(Post.created_at.desc()).all()
+    categories = Category.query.all()
+    return render_template("forum.html", posts=posts, categories=categories)
 
 def blog():
     """Lógica para a página do blog."""
-    return render_template("blog.html")
+    articles = Article.query.filter_by(is_published=True).order_by(Article.created_at.desc()).all()
+    categories = ArticleCategory.query.all()
+    return render_template("blog.html", articles=articles, categories=categories)

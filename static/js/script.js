@@ -42,4 +42,34 @@
       next.addEventListener('click', () => track.scrollBy({left:  step(), behavior: 'smooth'}));
     })();
 
+// Dynamic category colors for forum and blog
+(function() {
+  // Apply colors to filter buttons (both forum and blog)
+  const filterButtons = document.querySelectorAll('.filter-btn[data-color]');
+  filterButtons.forEach(button => {
+    const color = button.getAttribute('data-color');
+    if (color) {
+      button.style.setProperty('--category-color', color);
+    }
+  });
+
+  // Apply colors to forum tags
+  const forumTags = document.querySelectorAll('.forum-tag[data-color]');
+  forumTags.forEach(tag => {
+    const color = tag.getAttribute('data-color');
+    if (color) {
+      tag.style.setProperty('--category-color', color);
+    }
+  });
+
+  // Apply colors to blog tags
+  const blogTags = document.querySelectorAll('.blog-tag[data-color]');
+  blogTags.forEach(tag => {
+    const color = tag.getAttribute('data-color');
+    if (color) {
+      tag.style.setProperty('--category-color', color);
+    }
+  });
+})();
+
 
