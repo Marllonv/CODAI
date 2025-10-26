@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}Codaí - Editar Artigo{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/blog.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="blog-main">
+  <section class="article-form-section">
+    <h1>Editar Artigo</h1>
+    
+    <form method="POST" class="article-form">
+      <div class="form-group">
+        <label for="title">Título do Artigo</label>
+        <input type="text" id="title" name="title" value="{{ article.title }}" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="excerpt">Resumo (opcional)</label>
+        <textarea id="excerpt" name="excerpt" rows="3" placeholder="Breve descrição do artigo...">{{ article.excerpt or '' }}</textarea>
+      </div>
+      
+      <div class="form-group">
+        <label for="category_id">Categoria</label>
+        <select id="category_id" name="category_id" required>
+          <option value="">Selecione uma categoria</option>
+          {% for category in categories %}
+          <option value="{{ category.id }}" {% if category.id == article.category_id %}selected{% endif %}>{{ category.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label for="reading_time">Tempo de Leitura (minutos)</label>
+          <input type="number" id="reading_time" name="reading_time" value="{{ article.reading_time }}" min="1" max="60">
+        </div>
+        
+        <div class="form-group checkbox-group">
+          <label>
+            <input type="checkbox" name="is_featured" value="1" {% if article.is_featured %}checked{% endif %}>
+            Destacar artigo
+          </label>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="content">Conteúdo do Artigo</label>
+        <textarea id="content" name="content" rows="15" required placeholder="Escreva seu artigo aqui...">{{ article.content }}</textarea>
+      </div>
+      
+      <div class="form-actions">
+        <button type="submit" class="blog-btn">Atualizar Artigo</button>
+        <a href="{{ url_for('blog.view_article', article_id=article.id) }}" class="blog-btn secondary">Cancelar</a>
+      </div>
+    </form>
+  </section>
+</div>
+{% endblock %}

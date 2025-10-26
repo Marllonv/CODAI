@@ -221,6 +221,364 @@ html, body, main {
   border: 2px solid #6cf5e6;
 }
 
+/* ======== FILTROS E CATEGORIAS ======== */
+.forum-filters {
+  padding: 30px 2%;
+  background-color: #020c22;
+  border-bottom: 1px solid #132743;
+}
+
+.forum-filters h3 {
+  color: #6cf5e6;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.category-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  background-color: #071229;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 20px;
+  border: 1px solid #1b4b68;
+  transition: 0.3s;
+  font-size: 0.9rem;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background-color: #6cf5e6;
+  color: #000;
+  transform: translateY(-2px);
+}
+
+/* ======== METADADOS DO POST ======== */
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.post-author,
+.post-date,
+.comments-count {
+  color: #8a9ba8;
+  font-size: 0.8rem;
+}
+
+.post-author::before {
+  content: "👤 ";
+}
+
+.post-date::before {
+  content: "📅 ";
+}
+
+.comments-count::before {
+  content: "💬 ";
+}
+
+/* ======== POSTS VAZIOS ======== */
+.no-posts {
+  text-align: center;
+  padding: 60px 20px;
+  color: #8a9ba8;
+}
+
+.no-posts p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+/* ======== FORMULÁRIOS ======== */
+.create-post-container,
+.edit-post-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.create-post-container h1,
+.edit-post-container h1 {
+  color: #6cf5e6;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.post-form {
+  background-color: #071229;
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid #1b4b68;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  color: #6cf5e6;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #1b4b68;
+  border-radius: 5px;
+  background-color: #0d1a33;
+  color: #fff;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #6cf5e6;
+  box-shadow: 0 0 5px rgba(108, 245, 230, 0.3);
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: auto;
+}
+
+.form-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary {
+  background-color: #6cf5e6;
+  color: #000;
+}
+
+.btn-primary:hover {
+  background-color: #a8fff4;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: #1b4b68;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background-color: #2a5a7a;
+}
+
+/* ======== DETALHES DO POST ======== */
+.post-detail-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.back-link {
+  color: #6cf5e6;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.back-link:hover {
+  color: #a8fff4;
+}
+
+.post-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-edit,
+.btn-delete {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-edit {
+  background-color: #6cf5e6;
+  color: #000;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.post-content {
+  background-color: #071229;
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid #1b4b68;
+  margin-bottom: 30px;
+}
+
+.post-content h1 {
+  color: #6cf5e6;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.post-body {
+  color: #cdd8e4;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.post-updated {
+  color: #8a9ba8;
+  font-style: italic;
+}
+
+.highlight-badge {
+  background-color: #ffd700;
+  color: #000;
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* ======== COMENTÁRIOS ======== */
+.comments-section {
+  background-color: #071229;
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid #1b4b68;
+}
+
+.comments-section h2 {
+  color: #6cf5e6;
+  margin-bottom: 20px;
+}
+
+.comment-form {
+  margin-bottom: 30px;
+}
+
+.comment-form textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #1b4b68;
+  border-radius: 5px;
+  background-color: #0d1a33;
+  color: #fff;
+  font-size: 1rem;
+  resize: vertical;
+  min-height: 100px;
+  box-sizing: border-box;
+}
+
+.comment-form textarea:focus {
+  outline: none;
+  border-color: #6cf5e6;
+  box-shadow: 0 0 5px rgba(108, 245, 230, 0.3);
+}
+
+.login-prompt {
+  text-align: center;
+  color: #8a9ba8;
+  padding: 20px;
+  background-color: #0d1a33;
+  border-radius: 5px;
+}
+
+.login-prompt a {
+  color: #6cf5e6;
+  text-decoration: none;
+}
+
+
+.comments-list > * + * {
+  margin-top: 15px;
+}
+
+.comment {
+  background-color: #0d1a33;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border-left: 3px solid #6cf5e6;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.comment-header strong {
+  color: #6cf5e6;
+}
+
+.comment-date {
+  color: #8a9ba8;
+  font-size: 0.9rem;
+}
+
+.comment-body {
+  color: #cdd8e4;
+  line-height: 1.6;
+}
+
+.no-comments {
+  text-align: center;
+  color: #8a9ba8;
+  font-style: italic;
+  padding: 40px;
+}
+
 /* ==== FOOTER CODAÍ ==== */
 footer {
   background-color: #010a1a;
@@ -323,3 +681,19 @@ footer .copyright {
     font-size: 1.5rem;
   }
 }
+
+/* Dynamic color styles for categories */
+.filter-btn[data-color] {
+  background-color: var(--category-color, #ccc) !important;
+}
+
+.filter-btn[data-color]:hover {
+  background-color: var(--category-color, #ccc) !important;
+  opacity: 0.8;
+}
+
+.forum-tag[data-color] {
+  background-color: var(--category-color, #ccc) !important;
+}
+
+/* JavaScript will set CSS custom properties for dynamic colors */

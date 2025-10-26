@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Criar Post - Codaí{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/forum.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="create-post-container">
+    <h1>Criar Nova Postagem</h1>
+    
+    <form method="POST" class="post-form">
+        <div class="form-group">
+            <label for="title">Título:</label>
+            <input type="text" id="title" name="title" required maxlength="200" placeholder="Digite o título do seu post...">
+        </div>
+        
+        <div class="form-group">
+            <label for="category_id">Categoria:</label>
+            <select id="category_id" name="category_id" required>
+                <option value="">Selecione uma categoria</option>
+                {% for category in categories %}
+                <option value="{{ category.id }}">{{ category.name|title }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="content">Conteúdo:</label>
+            <textarea id="content" name="content" required rows="10" placeholder="Compartilhe sua dúvida, experiência ou descoberta..."></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label class="checkbox-label">
+                <input type="checkbox" name="is_highlighted" value="1">
+                Destacar este post
+            </label>
+        </div>
+        
+        <div class="form-actions">
+            <button type="submit" class="btn-primary">Criar Post</button>
+            <a href="{{ url_for('forum.index') }}" class="btn-secondary">Cancelar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
