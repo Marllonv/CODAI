@@ -12,41 +12,57 @@
     </section>
 
     <section class="grid-post-guias">
-        <div class="guias-list">
-            <h2 class="title-grid">Artigos e Guias</h2>
-            {% for guia in guias %}
-            <div class="guia-cards">
-                <img src="{{ url_for('static', filename=guia.imagem) }}" alt="imagem do guia">
-                <div class="more-detals">
-                    <h3 id="title-card">{{ guia.titulo }}</h3>
-                    <a href="{{ url_for('ver_guia', guia_id=guia.id) }}" class="see-post">Ver mais ></a>
-                </div>
-            </div>
-            {% endfor %}
-            <a href="{{ url_for('main.blog') }}" id="ver-mais-guias">Ver mais</a>
+    <div class="guias-list">
+    <h2 class="title-grid">Artigos e Guias</h2>
+    {% for guia in guias %}
+    <a href="{{ url_for('forum.view_post', post_id=guia.id) }}" class="guia-cards" style="display:block; text-decoration:none; color:inherit;">
+        <img src="" alt="imagem do guia">
+        <div class="more-detals">
+        <h3 id="title-card">{{ guia.title }}</h3>
+        <p>{{ guia.excerpt }}</p>
+        <small>Tempo de leitura: {{ guia.reading_time }} min</small>
         </div>
-        <div class="posts-list">
-            <h2 class="title-grid">Últimos Posts</h2>
-            {% for post in posts %}
-            <div class="post-cards">
-                <h3 id="title-card-post">{{ post.titulo }}</h3>
-                <div class="date-and-seepost">
-                    <p class="date-post">{{ post.data }}</p>
-                    <a href="{{ url_for('ver_post', post_id=post.id) }}" class="see-post">Ver Post</a>
-                </div>
+    </a>
+    {% else %}
+    <p>Nenhum artigo encontrado.</p>
+    {% endfor %}
+    </div>
+
+    <div class="posts-list">
+        <h2 class="title-grid">Últimos Posts</h2>
+        {% for post in posts %}
+          <div class="post-cards">
+            <h3 id="title-card-post">{{ post.title }}</h3>
+            <p>{{ post.excerpt if post.excerpt else post.content[:250] ~ '...' }}</p>
+            <div class="date-and-seepost">
+            <p class="date-post">{{ post.created_at.strftime('%d/%m/%Y') }}</p>
+            <a href="{{ url_for('blog.view_article', article_id=post.id) }}" class="see-post">Ver Post</a>
             </div>
-            {% endfor %}
-            <a href="{{ url_for('main.forum') }}" id="ver-mais-post">Ver mais</a>
-        </div>  
+            </div>
+        {% else %}
+        <p>Nenhum post encontrado.</p>
+        {% endfor %}
+        <a href="{{ url_for('main.forum') }}" id="ver-mais-post">Ver mais</a>
+    </div>  
     </section>
 
+
     <section id="depoiments">
-        <h2 id="title-depoiments">O que nossos usuários dizem</h2>
-        {% for depoimento in depoimentos %}
-        <div class="card-depoiments">
-            <h3 id="name-person">{{ depoimento.nome }}</h3>
-            <p id="depoiment-text">"{{ depoimento.texto }}"</p>
-        </div>
-        {% endfor %}
-    </section>
+  <h2 id="title-depoiments">O que nossos usuários dizem</h2>
+  <div class="depoiments-container">
+    <div class="card-depoiments">
+      <h3 class="name-person">João Silva</h3>
+      <p class="depoiment-text">"Este sistema facilitou muito a organização dos meus estudos. Recomendo!"</p>
+    </div>
+    <div class="card-depoiments">
+      <h3 class="name-person">Maria Oliveira</h3>
+      <p class="depoiment-text">"Ótima plataforma, super intuitiva e eficiente para gestão educacional."</p>
+    </div>
+    <div class="card-depoiments">
+      <h3 class="name-person">Carlos Souza</h3>
+      <p class="depoiment-text">"A equipe de suporte é excelente e sempre pronta para ajudar."</p>
+    </div>
+  </div>
+</section>
+
 {% endblock %}

@@ -7,6 +7,8 @@ from routes.auth import auth_bp
 from routes.main import main_bp
 from routes.forum import forum_bp
 from routes.blog import blog_bp
+from models.blog import Article
+from models.forum import Post 
 
 def create_app():
     app = Flask(__name__)
@@ -16,7 +18,7 @@ def create_app():
 
     db.init_app(app)
     login_manager.init_app(app)
-
+  
     @login_manager.user_loader
     def load_user(user_id):
         return User.query.get(int(user_id))
@@ -152,7 +154,6 @@ def create_app():
             
             db.session.commit()
         
-        # Criar posts de exemplo se não existirem
         if not Post.query.first():
             sample_posts = [
                 {
@@ -206,21 +207,22 @@ def create_app():
                     db.session.add(post)
             
             db.session.commit()
+            
     @app.route("/")
     def home():
-        posts = []
-        guias = []
-        depoimentos = []
+        guias = Article.query.filter_by(is_published=True).order_by(Article.created_at.desc()).limit(3).all()
+        posts = Post.query.order_by(Post.created_at.desc()).limit(3).all()
+        depoimentos = []  # se existir algo a passar
 
         return render_template(
             "home.html",
-            posts=posts,
             guias=guias,
+            posts=posts,
             depoimentos=depoimentos
         )
+        
 
     return app
-
 
 if __name__ == "__main__":
     app = create_app()

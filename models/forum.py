@@ -10,6 +10,7 @@ class Category(db.Model):
     color = db.Column(db.String(7), default='#007bff')  # Cor hexadecimal para a tag
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     
+    
     # Relacionamento com posts
     posts = db.relationship('Post', backref='category', lazy=True, cascade='all, delete-orphan')
     
@@ -25,7 +26,8 @@ class Post(db.Model):
     is_highlighted = db.Column(db.Boolean, default=False)  # Para posts em destaque
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
-    
+    image_path = db.Column(db.String(200))  # caminho relativo à pasta static, ex: 'image/git/exemplo.png'
+
     # Chaves estrangeiras
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable=False)

@@ -3,8 +3,16 @@ from models.forum import Post, Category
 from models.blog import Article, ArticleCategory
 
 def home():
-    """Lógica para a página inicial."""
-    return render_template("home.html")
+    guias = Article.query.filter_by(is_published=True).order_by(Article.created_at.desc()).limit(3).all()
+    posts = Post.query.order_by(Post.created_at.desc()).limit(3).all()
+    depoimentos = []
+
+    return render_template(
+        "home.html",
+        guias=guias,
+        posts=posts,
+        depoimentos=depoimentos
+    )
 
 def forum():
     """Lógica para a página do fórum."""

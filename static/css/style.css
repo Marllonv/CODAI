@@ -92,6 +92,281 @@ header {
   box-shadow: 0 6px 14px rgba(108, 245, 230, 0.06);
 }
 
+/* Seção principal que já tem o grid, ajustar para responsividade */
+.grid-post-guias {
+    background-color: #02081a77; /* já definido */
+    border-radius: 16px;
+    border: 1px solid #41a8bf42;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 150px;
+    width: 100%;
+    padding: 50px 4vw;
+}
+
+/* Ajustes para a lista de Guias e Posts para ficarem parecidas */
+.guide-list, .posts-list {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Títulos das seções */
+.title-grid {
+    font-size: 1.6rem;
+    color: #41A8BF;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+/* Cartões dos guias */
+.guias-list .guia-cards {
+    border: 1px solid #41A8BF;
+    margin-top: 20px;
+    height: 188px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    background-color: #04172c;
+    transition: box-shadow 0.3s ease;
+}
+
+.guias-list .guia-cards:hover {
+    box-shadow: -4px 4px 8px #41a8bf7c;
+    cursor: pointer;
+}
+
+.guias-list .guia-cards img {
+    width: 100%;
+    height: 55%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Conteúdo textual do guia */
+.guia-cards .more-detals {
+    background-color: #41A8BF;
+    flex: 1;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.guia-cards .more-detals #title-card {
+    font-size: 1rem;
+    color: #ffffff;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.guia-cards .more-detals .see-post {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bolder;
+    font-size: 0.85rem;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    align-self: flex-start;
+}
+
+.guia-cards .more-detals .see-post:hover {
+    color: #85F2E7;
+    border-bottom: 1px solid #85F2E7;
+    cursor: pointer;
+}
+
+/* Link "Ver mais" para guias */
+.guias-list #ver-mais-guias {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bolder;
+    font-size: 1rem;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.guias-list #ver-mais-guias:hover {
+    color: #85F2E7;
+    cursor: pointer;
+}
+
+/* Cartões dos posts */
+.posts-list .post-cards {
+    border: 1px solid #41A8BF;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 8px;
+    background-color: #04172c;
+    transition: box-shadow 0.3s ease;
+}
+
+.posts-list .post-cards:hover {
+    box-shadow: -4px 4px 8px #41a8bf7c;
+    cursor: pointer;
+}
+
+.posts-list .post-cards #title-card-post {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+}
+
+.posts-list .post-cards .date-and-seepost {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.posts-list .post-cards .date-post {
+    color: #85f2e7;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.posts-list .post-cards .see-post {
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+    font-size: 0.85rem;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.posts-list .post-cards .see-post:hover {
+    color: #85F2E7;
+    border-bottom: 1px solid #85F2E7;
+    cursor: pointer;
+}
+
+/* Link "Ver mais" para posts */
+.posts-list #ver-mais-post {
+    margin-top: 20px;
+    font-weight: bolder;
+    font-size: 1rem;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.posts-list #ver-mais-post:hover {
+    color: #85F2E7;
+    cursor: pointer;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .grid-post-guias {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        padding: 40px 3vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .guia-cards .more-detals #title-card,
+    .posts-list .post-cards #title-card-post {
+        font-size: 1rem;
+    }
+
+    .posts-list .post-cards .date-post,
+    .guia-cards .more-detals .see-post,
+    .posts-list .post-cards .see-post {
+        font-size: 0.75rem;
+    }
+
+    .grid-post-guias {
+        padding: 30px 2vw;
+    }
+}
+
+.grid-post-guias {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 150px;
+    width: 100%;
+    padding: 50px 4vw;
+    align-items: stretch; /* força as colunas preencherem a altura */
+}
+
+/* Faz com que as listas fiquem com altura máxima da grid */
+.guias-list, .posts-list {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Opcional: para garantir que os cards internos ocupem todo o espaço disponível */
+.guias-list .guia-cards, 
+.posts-list .post-cards {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.posts-list .post-cards {
+    border: 1px solid #41A8BF;
+    margin-top: 20px;
+    border-radius: 8px;
+    background-color: #04172c;
+    transition: box-shadow 0.3s ease;
+    min-height: 140px;          /* altura mínima suficiente até mesmo para conteúdos curtos */
+    padding: 18px 22px;         /* padding para espaçamento interno */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* distribui bem o conteúdo verticalmente */
+}
+
+/* Ajusta o texto e os títulos para manter espaçamento superior */
+.posts-list .post-cards #title-card-post {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+}
+
+.posts-list .post-cards .date-and-seepost {
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.depoiments-container {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+.card-depoiments {
+    background: #04172c;
+    border: 1px solid #41A8BF;
+    border-radius: 8px;
+    padding: 18px 22px;
+    min-width: 220px;
+    flex: 1 1 0;
+    color: #e0f7fa;
+    box-sizing: border-box;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+@media (max-width: 680px) {
+    .depoiments-container {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .card-depoiments {
+        min-width: unset;
+        width: 100%;
+    }
+}
+
+
 /* Make header links more touch-friendly on small screens */
 @media (max-width: 768px) {
   .buttons-header {
