@@ -23,3 +23,6 @@ auth_bp.route('/logout', endpoint='logout', methods=['GET', 'POST'])(auth_view.l
 # Rotas para recuperação de senha
 auth_bp.route('/reset_password', endpoint='reset_request', methods=['GET', 'POST'])(auth_view.reset_request)
 auth_bp.route('/reset_password/<token>', endpoint='reset_token', methods=['GET', 'POST'])(auth_view.reset_token)
+
+# Rota para editar/criar perfil
+auth_bp.route('/editar_perfil', endpoint='editar_perfil', methods=['GET', 'POST'])(auth_view.editar_perfil)

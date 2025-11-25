@@ -13,6 +13,8 @@ class User(db.Model, UserMixin):
     password_hash = db.Column(db.String(255), nullable=False)
     role = db.Column(db.String(20), default='user')
 
+    perfil = db.relationship('Profile', back_populates='user', uselist=False)
+
     def __init__(self, nome, email, role='user'):
         self.nome = nome
         self.email = email
