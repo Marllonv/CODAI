@@ -46,7 +46,7 @@
       <div class="blog-grid">
         {% for article in articles %}
         <article class="blog-card {% if article.is_featured %}highlight{% endif %}">
-          <img src="{{ article.thumbnail_url or '/static/image/article_thumbnail_1.svg' }}" alt="{{ article.title }}">
+          <img src="{{ article.thumbnail_url or url_for('static', filename='image/article_thumbnail_1.png') }}" alt="{{ article.title }}">
           <div class="blog-card-content">
             <h3><a href="{{ url_for('blog.view_article', article_id=article.id) }}">{{ article.title }}</a></h3>
             <p>{{ article.excerpt or article.content[:150] }}{% if article.content|length > 150 and not article.excerpt %}...{% endif %}</p>

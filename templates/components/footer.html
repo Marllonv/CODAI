@@ -1,7 +1,7 @@
 <footer class="codai-rodape">
     <div class="codai-rodape-conteudo">
         <div class="codai-rodape-logo">
-            <img src="/static/image/logo-nome.png" alt="Logo CODAÍ">
+            <img src="{{ url_for('static', filename='image/logo-nome.png') }}" alt="Logo CODAÍ">
         </div>
 
         <p>
@@ -10,9 +10,9 @@
 
         <div class="codai-social-secao">
             <span>Nos siga:</span>
-            <a href="#"><img src="/static/images/instagram.png" alt="Instagram"></a>
-            <a href="#"><img src="/static/images/github.png" alt="GitHub"></a>
-            <a href="#"><img src="/static/images/linkedin.png" alt="LinkedIn"></a>
+            <a href="#"><img src="{{ url_for('static', filename='image/instagram.png') }}" alt="Instagram"></a>
+            <a href="#"><img src="{{ url_for('static', filename='image/github.png') }}" alt="GitHub"></a>
+            <a href="#"><img src="{{ url_for('static', filename='image/linkedin.png') }}" alt="LinkedIn"></a>
         </div>
 
         <div class="codai-copyright">
