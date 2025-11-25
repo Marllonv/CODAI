@@ -3,6 +3,7 @@ from models.users import db, User
 from models.forum import Category, Post, Comment
 from models.blog import Article, ArticleCategory
 from extensions import login_manager
+from extensions import mail
 from routes.auth import auth_bp
 from routes.main import main_bp
 from routes.forum import forum_bp
@@ -15,9 +16,16 @@ def create_app():
     app.config['SECRET_KEY'] = 'sua_chave_secreta'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///codai.db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    # Configurações de e-mail (exemplo). Ajuste com suas credenciais em produção.
+    app.config.setdefault('MAIL_SERVER', '')
+    app.config.setdefault('MAIL_PORT', 587)
+    app.config.setdefault('MAIL_USE_TLS', True)
+    app.config.setdefault('MAIL_USERNAME', '')
+    app.config.setdefault('MAIL_PASSWORD', '')
 
     db.init_app(app)
     login_manager.init_app(app)
+    mail.init_app(app)
   
     @login_manager.user_loader
     def load_user(user_id):

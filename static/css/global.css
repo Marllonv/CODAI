@@ -14,3 +14,23 @@ html, body {
     padding: 0 0vw;
     overflow-x: hidden;
 }
+
+/* Flash messages */
+.flash-container{
+    max-width: 980px;
+    margin: 1rem auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+.flash{
+    padding: .75rem 1rem;
+    border-radius: 8px;
+    color: #081018;
+    background: #85F2E7;
+    font-weight: 600;
+}
+.message-error{ background: #ffb4b4; color:#2b0000; }
+.message-info{ background: #DCE2F2; color:#081018; }
+.message-success{ background: #c8f7e9; color:#014036; }

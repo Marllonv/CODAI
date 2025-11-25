@@ -27,6 +27,10 @@
                 <label class="log-label" for="password">Senha</label>
                 <input class="log-input" type="password" id="password" name="password" placeholder="********" required>
 
+                <p class="log-helper">
+                    <a class="log-link" href="{{ url_for('auth.reset_request') }}">Esqueci minha senha</a>
+                </p>
+
                 <button class="log-btn" type="submit">Entrar</button>
 
                 <p class="log-helper">

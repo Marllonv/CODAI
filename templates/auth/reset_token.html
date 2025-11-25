@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Redefinir Senha — CODAÍ{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block content %}
+<main class="log-page">
+  <section class="log-left">
+    <figure class="log-art">
+      <img src="{{ url_for('static', filename='image/fotoLoginn.png') }}" alt="Ilustração">
+    </figure>
+  </section>
+
+  <section class="log-right">
+    <div class="log-card">
+      <h1 class="log-title">Redefinir senha</h1>
+
+      <form class="log-form" action="" method="POST">
+        <label class="log-label" for="password">Nova senha</label>
+        <input class="log-input" type="password" id="password" name="password" placeholder="********" required>
+
+        <label class="log-label" for="confirm">Confirme a senha</label>
+        <input class="log-input" type="password" id="confirm" name="confirm" placeholder="********" required>
+
+        <button class="log-btn" type="submit">Redefinir senha</button>
+
+        <p class="log-helper">
+          Voltar para
+          <a class="log-link" href="{{ url_for('auth.login') }}">Entrar</a>
+        </p>
+      </form>
+    </div>
+  </section>
+</main>
+{% endblock %}

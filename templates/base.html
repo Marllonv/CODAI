@@ -15,9 +15,19 @@
     
     {% include 'components/header.html' %}
 
-    <main>
-        {% block content %}{% endblock %}
-    </main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            <div class="flash-container">
+                {% for category, msg in messages %}
+                    <div class="flash message-{{ category }}">{{ msg }}</div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        {% endwith %}
+
+        <main>
+                {% block content %}{% endblock %}
+        </main>
 
 
     {% include 'components/footer.html' %}

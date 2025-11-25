@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Recuperar Senha — CODAÍ{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block content %}
+<main class="log-page">
+  <section class="log-left">
+    <figure class="log-art">
+      <img src="{{ url_for('static', filename='image/fotoLoginn.png') }}" alt="Ilustração">
+    </figure>
+  </section>
+
+  <section class="log-right">
+    <div class="log-card">
+      <h1 class="log-title">Recuperar senha</h1>
+
+      <form class="log-form" action="{{ url_for('auth.reset_request') }}" method="POST">
+        <label class="log-label" for="email">E-mail</label>
+        <input class="log-input" type="email" id="email" name="email" placeholder="seu@email.com" required>
+
+        <button class="log-btn" type="submit">Enviar link de recuperação</button>
+
+        {% if reset_url %}
+        <div style="margin-top:1rem; word-break:break-all; background:#06133c; padding: .8rem; border-radius:8px;">
+          <strong>Link de recuperação (somente em desenvolvimento):</strong>
+          <div style="margin-top:.5rem;">
+            <a class="log-link" href="{{ reset_url }}">{{ reset_url }}</a>
+          </div>
+        </div>
+        {% endif %}
+
+        <p class="log-helper">
+          Lembrou a senha?
+          <a class="log-link" href="{{ url_for('auth.login') }}">Entrar</a>
+        </p>
+      </form>
+    </div>
+  </section>
+</main>
+{% endblock %}
