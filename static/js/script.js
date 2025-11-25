@@ -72,4 +72,50 @@
   });
 })();
 
+// Theme toggle: persist preference and switch icons
+(function() {
+  function initThemeToggle() {
+    const btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+
+    const body = document.body;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'light') {
+      body.classList.add('light');
+      btn.setAttribute('aria-pressed', 'true');
+    } else {
+      body.classList.remove('light');
+      btn.setAttribute('aria-pressed', 'false');
+    }
+
+    const updateIcons = () => {
+      const sun = btn.querySelector('.icon-sun');
+      const moon = btn.querySelector('.icon-moon');
+      if (body.classList.contains('light')) {
+        if (sun) sun.style.display = 'inline';
+        if (moon) moon.style.display = 'none';
+      } else {
+        if (sun) sun.style.display = 'none';
+        if (moon) moon.style.display = 'inline';
+      }
+    };
+
+    // initial icon state
+    updateIcons();
+
+    btn.addEventListener('click', () => {
+      const isLight = body.classList.toggle('light');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      btn.setAttribute('aria-pressed', isLight ? 'true' : 'false');
+      updateIcons();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initThemeToggle);
+  } else {
+    initThemeToggle();
+  }
+})();
+
 

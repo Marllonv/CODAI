@@ -5,6 +5,18 @@
             <a class="links-header {% if request.path == url_for('home') %}active{% endif %}" href="{{ url_for('home') }}">Home</a>
             <a class="links-header {% if request.path == url_for('main.blog') %}active{% endif %}" href="{{ url_for('main.blog') }}">Artigos</a>
             <a class="links-header {% if request.path == url_for('main.forum') %}active{% endif %}" href="{{ url_for('main.forum') }}">Fórum</a>
+            <!-- Theme toggle: toggles body.light class and persists choice in localStorage -->
+            <button id="theme-toggle" class="nav-button theme-toggle" aria-label="Alternar tema" title="Alternar tema" type="button" aria-pressed="false">
+                <!-- Sun icon (shown in light mode) -->
+                <svg class="icon-sun" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                    <path d="M6.76 4.84l-1.8-1.79L3.17 4.84l1.79 1.79 1.8-1.79zM1 13h3v-2H1v2zm10-9h2V1h-2v3zm7.24 1.05l1.79-1.79-1.79-1.79-1.79 1.79 1.79 1.79zM17 11v2h3v-2h-3zM12 6a6 6 0 100 12 6 6 0 000-12zm0 10a4 4 0 110-8 4 4 0 010 8zm-5.24 3.16l-1.79 1.79 1.79 1.79 1.79-1.79-1.79-1.79zM12 23h2v-3h-2v3zM19.24 19.16l1.79 1.79 1.79-1.79-1.79-1.79-1.79 1.79z"/>
+                </svg>
+
+                <!-- Moon icon (shown in dark mode) -->
+                <svg class="icon-moon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                    <path d="M21 12.8A9 9 0 0111.2 3 7 7 0 0012 17a7 7 0 009-4.2z"/>
+                </svg>
+            </button>
             {% if current_user.is_authenticated %}
                 <a class="links-header {% if request.path == url_for('auth.perfil') %}active{% endif %}" href="{{ url_for('auth.perfil') }}">
                     <img src="{{ url_for('static', filename='image/account_circle_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg') }}" alt="icone de perfil" id="icon-perfil">
