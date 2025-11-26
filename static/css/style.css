@@ -427,9 +427,10 @@ header {
     background-color: #41A8BF;
     color: #262626;
     font-weight: bolder;
-    padding: 10px 2rem;
+    padding: 15px 2rem;
     box-shadow: -4px 4px 1px #41a8bf4b;
     transition: 0.3s;
+    border-radius: 10px;
 }
 #apresentation #start-button:hover{
     
@@ -559,28 +560,74 @@ header {
     transition: 0.3s;
     cursor: pointer;
 }
-#depoiments{
-    margin: 50px 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    width: 100%;
+/* ======= DEPOIMENTOS ======= */
+
+#depoiments {
+    padding: 60px 20px;
+    text-align: center;
+    background: #f9f9f9;
 }
-#depoiments .card-depoiments{
-    border: 1px solid #41A8BF;
-    padding: 10px;
-    height: 250px;
+
+#title-depoiments {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #222;
+    font-weight: 700;
+}
+
+.depoiments-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.card-depoiments {
+    background: rgb(255, 255, 255);
+    border-radius: 18px;
+    padding: 20px 30px;
+    width: 320px;
+    min-height: 180px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s;
+    gap: 10px;
+    border: 1px solid #ececec;
 }
-#depoiments .card-depoiments #depoiment-text{
-    font-size: 0.9rem;
-    text-align: center;
-    margin-top: 10px;
+
+.card-depoiments:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
 }
+
+.name-person {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.depoiment-text {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .depoiments-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-depoiments {
+        width: 90%;
+    }
+}
+
 
 /* ==== RODAPÉ ==== */
 
@@ -790,4 +837,4 @@ body.light .card-depoiments {
     color: #0b3d91 !important;
 }
 
-/* End global light-blue -> dark-blue overrides */
+/* End global light-blue -> dark-blue overrides *

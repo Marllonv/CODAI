@@ -16,7 +16,7 @@
     <h2 class="title-grid">Artigos e Guias</h2>
     {% for guia in guias %}
     <a href="{{ url_for('forum.view_post', post_id=guia.id) }}" class="guia-cards" style="display:block; text-decoration:none; color:inherit;">
-        <img src="" alt="imagem do guia">
+        <img src="../static/image/article_thumbnail_1.png" alt="imagem do guia">
         <div class="more-detals">
         <h3 id="title-card">{{ guia.title }}</h3>
         <p>{{ guia.excerpt }}</p>
@@ -47,22 +47,32 @@
     </section>
 
 
-    <section id="depoiments">
-  <h2 id="title-depoiments">O que nossos usuários dizem</h2>
-  <div class="depoiments-container">
-    <div class="card-depoiments">
-      <h3 class="name-person">João Silva</h3>
-      <p class="depoiment-text">"Este sistema facilitou muito a organização dos meus estudos. Recomendo!"</p>
+<section id="depoiments" class="depoiments-wrapper">
+    <h2 class="title-depoiments">O que nossos usuários dizem</h2>
+
+    <div class="depoiments-container">
+        <div class="card-depoiments">
+            <p class="depoiment-text">
+                “A CODAI mudou completamente minha forma de aprender tecnologia. Tudo é didático e organizado!”
+            </p>
+            <span class="depoiment-user">— Mariana S.</span>
+        </div>
+
+        <div class="card-depoiments">
+            <p class="depoiment-text">
+                “Os artigos me ajudam demais! Aprendo rápido e consigo aplicar tudo no mesmo dia.”
+            </p>
+            <span class="depoiment-user">— Lucas A.</span>
+        </div>
+
+        <div class="card-depoiments">
+            <p class="depoiment-text">
+                “A plataforma é muito intuitiva. Recomendo para qualquer iniciante que queira entrar na área.”
+            </p>
+            <span class="depoiment-user">— Giovana P.</span>
+        </div>
     </div>
-    <div class="card-depoiments">
-      <h3 class="name-person">Maria Oliveira</h3>
-      <p class="depoiment-text">"Ótima plataforma, super intuitiva e eficiente para gestão educacional."</p>
-    </div>
-    <div class="card-depoiments">
-      <h3 class="name-person">Carlos Souza</h3>
-      <p class="depoiment-text">"A equipe de suporte é excelente e sempre pronta para ajudar."</p>
-    </div>
-  </div>
 </section>
+
 
 {% endblock %}
