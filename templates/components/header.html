@@ -19,7 +19,11 @@
             </button>
             {% if current_user.is_authenticated %}
                 <a class="links-header {% if request.path == url_for('auth.perfil') %}active{% endif %}" href="{{ url_for('auth.perfil') }}">
-                    <img src="{{ url_for('static', filename='image/account_circle_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg') }}" alt="icone de perfil" id="icon-perfil">
+                    {% if current_user.perfil and current_user.perfil.foto_thumb %}
+                        <img src="{{ url_for('static', filename=current_user.perfil.foto_thumb) }}" alt="foto thumb" style="width:40px;height:40px;border-radius:50%;">
+                    {% else %}
+                        <img src="{{ url_for('static', filename='image/account_circle_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg') }}" alt="icone de perfil" id="icon-perfil">
+                    {% endif %}
                 </a>
             {% endif %}
         </div>

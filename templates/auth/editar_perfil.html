@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Editar Perfil — CODAI{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block content %}
+<main class="log-page">
+    <section class="log-left">
+        <figure class="log-art">
+            <img src="{{ url_for('static', filename='image/fotoLoginn.png') }}" alt="Ilustração de perfil">
+        </figure>
+    </section>
+    <section class="log-right">
+        <div class="log-card">
+            <h1 class="log-title">Editar Perfil</h1>
+            <form class="log-form" method="post" enctype="multipart/form-data">
+                <label class="log-label" for="telefone">Telefone</label>
+                <input class="log-input" type="text" name="telefone" id="telefone" placeholder="(xx)xxxxx-xxxx" value="{{ perfil.telefone if perfil else '' }}">
+                <label class="log-label" for="bio">Bio</label>
+                <input class="log-input" type="text" name="bio" id="bio" placeholder="Fale sobre você" value="{{ perfil.bio if perfil else '' }}">
+                <label class="log-label" for="foto">Foto (PNG)</label>
+                <input class="log-input" type="file" name="foto" id="foto" accept="image/png">
+                <button class="log-btn" type="submit">Salvar</button>
+                <p class="log-helper">
+                    <a class="log-link" href="{{ url_for('auth.perfil') }}">Cancelar</a>
+                </p>
+            </form>
+        </div>
+    </section>
+</main>
+{% endblock %}

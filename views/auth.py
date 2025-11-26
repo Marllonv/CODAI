@@ -7,6 +7,7 @@ from flask import current_app
 from flask_mail import Message
 from extensions import mail
 from threading import Thread
+from models.profile import Profile
 
 
 # --- Rota: /auth/register ---
@@ -166,3 +167,33 @@ def reset_token(token):
         return redirect(url_for('auth.login'))
 
     return render_template('auth/reset_token.html')
+
+
+# --- Rota: /auth/editar_perfil ---
+@login_required
+def editar_perfil():
+    perfil = Profile.query.filter_by(user_id=current_user.id).first()
+    if request.method == 'POST':
+        telefone = request.form.get('telefone')
+        bio = request.form.get('bio')
+        foto_file = request.files.get('foto')
+        foto = perfil.foto if perfil else None
+        import os
+        from werkzeug.utils import secure_filename
+        upload_folder = os.path.join('static', 'image')
+        if foto_file and foto_file.filename:
+            filename = f"foto_{current_user.id}.png"
+            path = os.path.join(upload_folder, filename)
+            foto_file.save(path)
+            foto = f"image/{filename}"
+        if not perfil:
+            perfil = Profile(user_id=current_user.id)
+            db.session.add(perfil)
+        perfil.telefone = telefone
+        perfil.bio = bio
+        perfil.foto = foto
+        perfil.foto_thumb = foto  # foto_thumb igual a foto
+        db.session.commit()
+        flash('Perfil atualizado com sucesso!', 'success')
+        return redirect(url_for('auth.perfil'))
+    return render_template('auth/editar_perfil.html', perfil=perfil)
