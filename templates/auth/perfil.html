@@ -10,47 +10,54 @@
 <main class="perfil pf-shell">
     <div class="pf-container">
 
-        <!-- HERO (Minha Conta + Ilustração) -->
         <section class="pf-hero">
+            
             <div class="pf-info">
+                
                 <h1 class="pf-title">Minha Conta</h1>
-                <figure class="pf-illustration">
-                {% if user.perfil and user.perfil.foto %}
-                    <img src="{{ url_for('static', filename=user.perfil.foto) }}" alt="Foto de perfil" style="width:120px;height:120px;border-radius:50%;object-fit:cover;">
-                {% else %}
-                    <img src="{{ url_for('static', filename='image/screen03 1.png') }}" alt="Ilustração de perfil e segurança">
-                {% endif %}
-            </figure>
-                <p class="pf-row">
-                    <span class="pf-label">Nome:</span>
-                    <span id="pf-name">{{ current_user.nome }}</span>
-                </p>
-                <p class="pf-row">
-                    <span class="pf-label">E-mail:</span>
-                    <span id="pf-email">{{ current_user.email }}</span>
-                </p>
-                <p class="pf-row">
-                    <span class="pf-label">Telefone:</span>
-                    <span id="pf-telefone">{{ user.perfil.telefone if user.perfil else '' }}</span>
-                </p>
                 
+                <div>
+                    <figure class="pf-icon">
+                        {% if user.perfil and user.perfil.foto %}
+                            <img src="{{ url_for('static', filename=user.perfil.foto) }}" alt="Foto de perfil" style="width:150px;height:150px;border-radius:50%;object-fit:cover; margin-bottom: 10px;">
+                        {% else %}
+                            <img src="{{ url_for('static', filename='image/admin_master_icon.png') }}" alt="Ícone de perfil" style="width: 150px; height: 150px; margin-bottom: 10px;">
+                        {% endif %}
+                    </figure>
+
+                    <p class="pf-row">
+                     <span style="font-weight: 800; font-size: 1.3rem;">{{ current_user.nome }}</span>
+                    </p>
+                    <p class="pf-row">{{ current_user.email }}</p>
+                    <p class="pf-row" style="opacity: 0.8;">
+                        {{ user.perfil.telefone if user.perfil and user.perfil.telefone else 'Telefone não cadastrado' }}
+                    </p>
+                </div>
                 
-                <div class="pf-actions">
-                    <button href="{{ url_for('auth.editar_perfil') }}" class="btn-primary">Editar Perfil</button>
+                <h2 class="pf-subtitle" style="margin-top: 30px;">Sobre você</h2>
+                    <p style="padding: 10px; border: 1px solid rgba(220, 226, 242, 0.1); border-radius: 8px; min-height: 80px;">
+                  {% if user.perfil and user.perfil.bio %}
+                    {{ user.perfil.bio }}
+                     {% else %}
+                   Adicione uma breve descrição sobre você, seus objetivos de aprendizado e áreas de interesse.
+                      {% endif %}
+</p>                    
+                   
+                
+                <div class="pf-actions" style="margin-top: 30px; display: grid; gap: 10px;">
+                    <a href="{{ url_for('auth.editar_perfil') }}" class="btn-primary" style="text-align: center; text-decoration: none; display: flex; justify-content: center; align-items: center; width: 100%; margin: 0;">Editar perfil</a>
+                    
                     <form action="{{ url_for('auth.logout') }}" method="post">
-                        <button class="btn-danger" type="submit">Logout</button>
+                        <button class="btn-danger" type="submit" style="width: 100%; margin: 0;">Sair</button>
                     </form>
                 </div>
             </div>
-         
+            
+            <figure class="pf-illustration">
+                <img src="{{ url_for('static', filename='image/screen03 1.png') }}" alt="Ilustração de perfil e segurança">
+            </figure>
+            
         </section>
-
-        <!-- ATIVIDADES -->
-        <!-- <section class="pf-activities">
-            <h2 class="pf-subtitle">Minhas Atividades</h2>
-            <div class="act-grid">
-                <article class="act-card">
-                    <div class="act-body">
-                 -->
-
+        </div>
+</main>
 {% endblock %}

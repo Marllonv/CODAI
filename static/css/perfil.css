@@ -18,13 +18,7 @@ body.perfil{ padding: 0; }
   margin: 0 auto;
 }
 
-/* ===== TOPO (logo no canto) ===== */
-.pf-top{
-  height: 64px;
-  display: flex;
-  align-items: center;
-}
-.pf-logo{ height: 28px; }
+
 
 /* ===== HERO ===== */
 .pf-hero{
@@ -44,9 +38,6 @@ body.perfil{ padding: 0; }
 }
 
 .pf-row{ margin: 0; }
-.pf-label{ font-weight: 700; margin-right: .35rem; }
-
-.pf-actions{ margin-top: 8px; }
 
 /* ===== Botões ===== */
 .btn-primary{
@@ -56,7 +47,6 @@ body.perfil{ padding: 0; }
   color: #fff;
   border: none;
   cursor: pointer;
-  margin: 10px;
   box-shadow: 0 8px 18px rgba(225,75,75,.25);
 }
 .btn-primary:hover{ filter: brightness(1.06); }
@@ -69,7 +59,6 @@ body.perfil{ padding: 0; }
   color: #fff;
   border: none;
   cursor: pointer;
-    margin: 10px;
   box-shadow: 0 8px 18px rgba(225,75,75,.25);
 }
 .btn-danger:hover{ filter: brightness(1.05); }
@@ -83,46 +72,8 @@ body.perfil{ padding: 0; }
   filter: drop-shadow(0 12px 34px rgba(0,0,0,.45));
 }
 
-/* ===== ATIVIDADES ===== */
-.pf-activities{ padding-top: 8px; }
 
-.pf-subtitle{
-  margin: 0 0 16px;
-  font-size: clamp(1.15rem, 2vw, 1.35rem);
-  font-weight: 800;
-}
 
-/* grid de cards alinhado com o container */
-.act-grid{
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-
-/* card */
-.act-card{
-  display: grid;
-  grid-template-rows: 1fr auto;
-  background: #0B1A3B; /* levemente mais claro que o bg */
-  border: 1px solid rgba(133,242,231,.12);
-  border-radius: 14px;
-  min-height: 160px;
-  overflow: hidden;
-}
-.act-body{ padding: 14px 14px 10px; }
-.act-title{ margin: 0 0 4px; font-size: 1rem; font-weight: 800; }
-.act-meta{ margin: 0; opacity: .88; font-size: .9rem; }
-
-.act-footer{ background: #41A8BF; padding: 10px 14px; }
-.act-link{ color: #081018; font-weight: 800; text-decoration: none; }
-.act-link:hover{ text-decoration: underline; }
-
-/* botão voltar com respiro */
-.pf-bottom{
-  display: flex;
-  justify-content: center;
-  margin-top: 28px; /* distância dos cards */
-}
 
 /* ===== RESPONSIVO ===== */
 @media (max-width: 1100px){
@@ -141,3 +92,42 @@ body.perfil{ padding: 0; }
   .act-grid{ grid-template-columns: 1fr; }
   .pf-bottom{ margin-top: 22px; }
 }
+/* Ajusta o contêiner de ações para que os botões fiquem numa coluna com a largura total */
+
+/* Garante que os botões dentro do pf-actions ocupem 100% da largura do contêiner e remove a margem */
+.pf-actions .btn-primary, .pf-actions .btn-danger{
+    width: 100%;
+    margin: 0; /* Remove a margem lateral de 10px que estava no seu CSS original */
+}
+
+/* Opcional: Ajusta o grid de atividades dentro da coluna principal (pf-info) para não ficar muito apertado no desktop */
+/* Ajusta o contêiner de ações para layout em coluna e largura total */
+.pf-actions{
+    /* Garante layout em coluna no mobile/desktop estreito */
+    display: grid;
+    gap: 10px;
+    margin-top: 20px; /* Espaçamento ajustado */
+}
+
+/* ===== Botões (Ajuste para link <a>) ===== */
+.btn-primary, .btn-danger{
+    padding: .6rem 1rem;
+    border-radius: 12px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin: 0; /* CORREÇÃO: Remove a margem lateral para que width: 100% funcione */
+    box-shadow: 0 8px 18px rgba(225,75,75,.25);
+    width: 100%; /* Garante que os botões ocupem 100% da largura do contêiner .pf-actions */
+}
+
+.btn-primary{
+    background: #41A8BF;
+}
+.btn-primary:hover{ filter: brightness(1.06); }
+
+/* Logout vermelho */
+.btn-danger{
+    background: #E14B4B; /* vermelho */
+}
+.btn-danger:hover{ filter: brightness(1.05); }
