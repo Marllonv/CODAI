@@ -81,6 +81,11 @@ html, body, main {
   box-sizing: border-box;
 }
 
+body.light .forum-hero {
+    background-color: #31364577;
+    color: #111827;
+}
+
 .forum-hero h1 {
   color: #6cf5e6;
   font-size: 2.2rem;
@@ -93,6 +98,13 @@ html, body, main {
   margin: 0 auto 30px;
   line-height: 1.6;
   font-size: 1rem;
+}
+
+body.light .forum-hero h1 {
+  color: #111827;
+}
+body.light .forum-hero p {
+  color: #111827;
 }
 
 .forum-dots {
@@ -126,6 +138,11 @@ html, body, main {
   transition: 0.3s;
 }
 
+body.light .forum-btn {
+  background-color: #4a526a77;
+  color: #111827;
+}
+
 .forum-btn:hover {
   background-color: #a8fff4;
   transform: translateY(-2px);
@@ -145,6 +162,12 @@ html, body, main {
   box-sizing: border-box;
 }
 
+body.light .forum-input {
+  background-color: #ffffff;
+  color: #111827;
+  border: 1px solid #c0c0c0;
+}
+
 /* ======== POSTS ======== */
 .forum-posts {
   padding: 60px 2%;
@@ -157,6 +180,10 @@ html, body, main {
   color: #6cf5e6;
   font-size: 1.8rem;
   margin-bottom: 40px;
+}
+
+body.light .forum-posts h2 {
+  color: #111827;
 }
 
 .forum-grid {
@@ -177,6 +204,11 @@ html, body, main {
   display: flex;
   gap: 15px;
   transition: 0.3s;
+}
+
+body.light .forum-card {
+  background-color: #93a4c8;
+  border: 1px solid #c0c0c0;
 }
 
 .forum-card:hover {
@@ -207,6 +239,10 @@ html, body, main {
   margin-bottom: 8px;
 }
 
+body.light .forum-card p {
+  color: #111827;
+}
+
 .forum-tag {
   background-color: #6cf5e6;
   color: #000;
@@ -228,11 +264,20 @@ html, body, main {
   border-bottom: 1px solid #132743;
 }
 
+body.light .forum-filters {
+  background-color: #31364577;
+  border: 1px solid #c0c0c0;
+}
+
 .forum-filters h3 {
   color: #6cf5e6;
   text-align: center;
   margin-bottom: 20px;
   font-size: 1.2rem;
+}
+
+body.light .forum-filters h3 {
+  color: #111827;
 }
 
 .category-filters {

@@ -14,6 +14,13 @@
         <section class="pf-hero">
             <div class="pf-info">
                 <h1 class="pf-title">Minha Conta</h1>
+                <figure class="pf-illustration">
+                {% if user.perfil and user.perfil.foto %}
+                    <img src="{{ url_for('static', filename=user.perfil.foto) }}" alt="Foto de perfil" style="width:120px;height:120px;border-radius:50%;object-fit:cover;">
+                {% else %}
+                    <img src="{{ url_for('static', filename='image/screen03 1.png') }}" alt="Ilustração de perfil e segurança">
+                {% endif %}
+            </figure>
                 <p class="pf-row">
                     <span class="pf-label">Nome:</span>
                     <span id="pf-name">{{ current_user.nome }}</span>
@@ -26,24 +33,16 @@
                     <span class="pf-label">Telefone:</span>
                     <span id="pf-telefone">{{ user.perfil.telefone if user.perfil else '' }}</span>
                 </p>
-                <p class="pf-row">
-                    <span class="pf-label">Bio:</span>
-                    <span id="pf-bio">{{ user.perfil.bio if user.perfil else '' }}</span>
-                </p>
+                
+                
                 <div class="pf-actions">
-                    <a href="{{ url_for('auth.editar_perfil') }}" class="btn-primary" style="margin-bottom: 10px; display: block;">Editar Perfil</a>
+                    <button href="{{ url_for('auth.editar_perfil') }}" class="btn-primary">Editar Perfil</button>
                     <form action="{{ url_for('auth.logout') }}" method="post">
                         <button class="btn-danger" type="submit">Logout</button>
                     </form>
                 </div>
             </div>
-            <figure class="pf-illustration">
-                {% if user.perfil and user.perfil.foto %}
-                    <img src="{{ url_for('static', filename=user.perfil.foto) }}" alt="Foto de perfil" style="width:120px;height:120px;border-radius:50%;object-fit:cover;">
-                {% else %}
-                    <img src="{{ url_for('static', filename='image/screen03 1.png') }}" alt="Ilustração de perfil e segurança">
-                {% endif %}
-            </figure>
+         
         </section>
 
         <!-- ATIVIDADES -->

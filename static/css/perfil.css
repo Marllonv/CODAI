@@ -50,14 +50,14 @@ body.perfil{ padding: 0; }
 
 /* ===== Botões ===== */
 .btn-primary{
-  display: inline-block;
-  padding: .85rem 1.25rem;
+    padding: .6rem 1rem;
   border-radius: 12px;
   background: #41A8BF;
-  color: #081018;
-  font-weight: 700;
-  text-decoration: none;
-  box-shadow: 0 10px 22px rgba(65,168,191,.25);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
+  box-shadow: 0 8px 18px rgba(225,75,75,.25);
 }
 .btn-primary:hover{ filter: brightness(1.06); }
 
@@ -69,6 +69,7 @@ body.perfil{ padding: 0; }
   color: #fff;
   border: none;
   cursor: pointer;
+    margin: 10px;
   box-shadow: 0 8px 18px rgba(225,75,75,.25);
 }
 .btn-danger:hover{ filter: brightness(1.05); }
