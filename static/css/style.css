@@ -427,10 +427,9 @@ header {
     background-color: #41A8BF;
     color: #262626;
     font-weight: bolder;
-    padding: 15px 2rem;
+    padding: 10px 2rem;
     box-shadow: -4px 4px 1px #41a8bf4b;
     transition: 0.3s;
-    border-radius: 10px;
 }
 #apresentation #start-button:hover{
     
@@ -560,75 +559,28 @@ header {
     transition: 0.3s;
     cursor: pointer;
 }
-/* ======= DEPOIMENTOS ======= */
-
-#depoiments {
-    padding: 60px 20px;
-    text-align: center;
-    background: #030C26;
+#depoiments{
+    margin: 50px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
 }
-
-#title-depoiments {
-    font-size: 2rem;
-    margin-bottom: 40px;
-    color: #222;
-    font-weight: 700;
-}
-
-.depoiments-container {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
-    max-width: 1100px;
-    margin: 0 auto;
-    margin-top: 50px;
-}
-
-.card-depoiments {
-    background: #41A8BF;
-    border-radius: 18px;
-    padding: 20px 30px;
-    width: 320px;
-    min-height: 180px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+#depoiments .card-depoiments{
+    border: 1px solid #41A8BF;
+    padding: 10px;
+    height: 250px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    border: 1px solid #ececec;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
 }
-
-.card-depoiments:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+#depoiments .card-depoiments #depoiment-text{
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 10px;
 }
-
-.name-person {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #333;
-}
-
-.depoiment-text {
-    font-size: 0.95rem;
-    color: #555;
-    line-height: 1.6;
-    font-style: italic;
-}
-
-/* RESPONSIVO */
-@media (max-width: 768px) {
-    .depoiments-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .card-depoiments {
-        width: 90%;
-    }
-}
-
 
 /* ==== RODAPÉ ==== */
 
@@ -657,9 +609,13 @@ header {
     width: 150px;
 }
 
+body.light .codai-rodape-logo img {
+    filter: brightness(0) saturate(100%);
+}
+
 .codai-rodape p {
     font-size: 0.95rem;
-    color: #b3dbe2;
+    color: #0b3d91 !important;
     margin: 0;
     line-height: 1.6;
     max-width: 600px;
@@ -711,6 +667,13 @@ body.light {
     color: #111827; /* dark gray text */
 }
 
+/* Ícone fica branco no tema escuro */
+body:not(.light) #icon-perfil,
+body:not(.light) .icon-moon,
+body:not(.light) .qualquer-classe-do-seu-ícone {
+    filter: invert(1); /* transforma preto em branco */
+}
+
 body.light header,
 body.light header,
 body.light .codai-rodape {
@@ -722,7 +685,7 @@ body.light .codai-rodape {
 
 /* Ensure the nav-bar inside header also uses light background */
 body.light #nav-bar {
-    background-color: transparent !important;
+    background-color: #02081a77 !important;
 }
 
 /* Make header border bottom subtle in light mode */
@@ -754,9 +717,9 @@ body.light .buttons-header .links-header.active {
 body.light .guia-cards .more-detals,
 body.light .posts-list .post-cards,
 body.light .card-depoiments {
-    background-color: #41A8BF;
+    background-color: #ffffff;
     color: #0f172a;
-    border-color: #41A8BF;
+    border-color: #e6e6e6;
 }
 
 /* Theme toggle button visuals */
@@ -838,4 +801,4 @@ body.light .card-depoiments {
     color: #0b3d91 !important;
 }
 
-/* End global light-blue -> dark-blue overrides *
+/* End global light-blue -> dark-blue overrides */

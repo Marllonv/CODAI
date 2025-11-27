@@ -23,6 +23,11 @@ html, body, main {
   box-sizing: border-box;
 }
 
+body.light .blog-hero {
+  background-color: #31364577;
+  color: #111827;
+}
+
 .blog-hero h1 {
   color: #6cf5e6;
   font-size: 2.2rem;
@@ -70,6 +75,11 @@ html, body, main {
   transition: 0.3s;
 }
 
+body.light .blog-btn {
+  background-color: #4a526a77;
+  color: #111827;
+}
+
 .blog-btn:hover {
   background-color: #a8fff4;
   transform: translateY(-2px);
@@ -87,6 +97,11 @@ html, body, main {
   margin: 10px auto 0;
   display: block;
   box-sizing: border-box;
+}
+body.light .blog-input {
+  background-color: #ffffff;
+  color: #111827;
+  border: 1px solid #c0c0c0;
 }
 
 /* ARTICLES LIST */
@@ -123,6 +138,11 @@ html, body, main {
   gap: 15px;
   transition: 0.3s;
   align-items: flex-start;
+}
+
+body.light .blog-card {
+  background-color: #93a4c8;
+  border: 1px solid #c0c0c0;
 }
 
 .blog-card:hover {
@@ -241,6 +261,15 @@ footer p {
   }
 }
 
+body.light .blog-hero h1 {
+  color: #111827;
+}
+body.light .blog-articles h2 {
+  color: #111827;
+}
+body.light .blog-hero p {
+  color: #111827;
+}
 /* FILTROS POR CATEGORIA */
 .blog-filters {
   padding: 30px 2%;
@@ -248,10 +277,19 @@ footer p {
   border-bottom: 1px solid #132743;
 }
 
+body.light .blog-filters {
+  background-color: #31364577;
+  border: 1px solid #c0c0c0;
+}
+
 .blog-filters h3 {
   color: #6cf5e6;
   margin-bottom: 15px;
   font-size: 1.2rem;
+}
+
+body.light .blog-filters h3 {
+  color: #111827;
 }
 
 .category-filters {

@@ -52,6 +52,11 @@
   backdrop-filter: blur(6px);
 }
 
+body.light .cad-card{
+  background: #eaeaea !important;
+  border: 1px solid rgba(0,0,0,.10);
+}
+
 .cad-title{
   margin: 0 0 1.25rem;
   font-size: clamp(1.3rem, 2.2vw, 1.6rem);
@@ -64,6 +69,11 @@
   font-size: .9rem;
   color: #DCE2F2;
   opacity: .9;
+}
+
+body.light .cad-label{
+  color: #2d4993 !important;
+  opacity: .85;
 }
 
 .cad-input{
@@ -103,6 +113,10 @@
   margin-top: 1.25rem;
   font-size: .95rem;
   color: #BFD3F2;
+}
+
+body.light .cad-helper{
+  color: #4b5563 !important;
 }
 .cad-link{ color: #85F2E7; text-decoration: none; }
 .cad-link:hover{ text-decoration: underline; }
