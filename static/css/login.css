@@ -70,6 +70,11 @@
   opacity: .9;
 }
 
+body.light .log-label{
+  color: #2d4993 !important;
+  opacity: .85;
+}
+
 .log-input{
   width: 100%;
   padding: .95rem 1rem;
@@ -108,6 +113,12 @@
   font-size: .95rem;
   color: #BFD3F2;
 }
+
+body.light .log-helper{
+  color: #4b5563 !important;
+  opacity: .85;
+}
+
 .log-link{ color: #85F2E7; text-decoration: none; }
 .log-link:hover{ text-decoration: underline; }
 

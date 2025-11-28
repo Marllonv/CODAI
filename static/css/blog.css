@@ -76,7 +76,7 @@ body.light .blog-hero {
 }
 
 body.light .blog-btn {
-  background-color: #4a526a77;
+  background-color: #b2b8cc77;
   color: #111827;
 }
 
@@ -210,12 +210,22 @@ footer {
   border-top: 1px solid rgba(0, 255, 255, 0.1);
 }
 
+body.light footer {
+  background-color: #f3f4f6 !important;
+  border-color: #e6e6e6 !important;
+  color: #0f172a !important;
+}
+
 footer p {
   font-size: 0.95rem;
   color: #b3dbe2;
   margin: 0;
   line-height: 1.6;
   max-width: 600px;
+}
+
+body.light footer p {
+  color: #374151 !important;
 }
 
 /* RESPONSIVE */
@@ -337,6 +347,12 @@ body.light .blog-filters h3 {
   border: 1px solid #132743;
 }
 
+body.light .article-form {
+  background-color: #ffffff;
+  color: #111827;
+  border: 1px solid #a0a0a0;
+}
+
 .form-group {
   margin-bottom: 20px;
 }
@@ -346,6 +362,10 @@ body.light .blog-filters h3 {
   margin-bottom: 8px;
   color: #6cf5e6;
   font-weight: 500;
+}
+
+body.light .form-group label {
+  color: #0b3d91 !important;
 }
 
 .form-group input,
@@ -359,6 +379,14 @@ body.light .blog-filters h3 {
   color: #fff;
   font-size: 1rem;
   box-sizing: border-box;
+}
+
+body.light .form-group input,
+body.light .form-group select,
+body.light .form-group textarea {
+  background-color: #ffffff;
+  color: #111827;
+  border: 1px solid #646262;
 }
 
 .form-group input:focus,
@@ -452,6 +480,10 @@ body.light .article-header h1 {
   margin-bottom: 20px;
 }
 
+body.light .article-excerpt {
+  color: #374151;
+}
+
 .article-content {
   background-color: #020c22;
   padding: 30px;
@@ -459,6 +491,12 @@ body.light .article-header h1 {
   border: 1px solid #132743;
   line-height: 1.8;
   font-size: 1.1rem;
+}
+
+body.light .article-content {
+  background-color: #ffffff;
+  color: #111827;
+  border: 1px solid #c0c0c0;
 }
 
 .article-content h2 {
