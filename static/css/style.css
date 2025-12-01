@@ -165,6 +165,8 @@ header {
     font-weight: 600;
 }
 
+
+
 .guia-cards .more-detals .see-post {
     text-decoration: none;
     color: #ffffff;
@@ -180,8 +182,9 @@ header {
     cursor: pointer;
 }
 
+
 /* Link "Ver mais" para guias */
-.guias-list #ver-mais-guias {
+.guias-list #ver-mais-blog {
     text-align: center;
     margin-top: 20px;
     font-weight: bolder;
@@ -191,7 +194,7 @@ header {
     transition: color 0.3s ease;
 }
 
-.guias-list #ver-mais-guias:hover {
+.guias-list #ver-mais-blog:hover {
     color: #85F2E7;
     cursor: pointer;
 }

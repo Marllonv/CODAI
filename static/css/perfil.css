@@ -31,6 +31,7 @@ body.perfil{ padding: 0; }
   display: grid;
   grid-template-columns: 1.1fr .9fr; /* proporção de colunas semelhante ao seu exemplo */
   align-items: center;
+  justify-content: center;
   column-gap: 56px;
   padding: 24px 0 40px;
 }
