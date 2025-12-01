@@ -16,7 +16,7 @@
     <h2 class="title-grid">Artigos e Guias</h2>
     {% for guia in guias %}
     <a href="{{ url_for('forum.view_post', post_id=guia.id) }}" class="guia-cards" style="display:block; text-decoration:none; color:inherit;">
-        <img src="" alt="imagem do guia">
+        <img src="../static/image/codificacao-de-programa-de-computador-na-tela.jpg" alt="imagem do guia">
         <div class="more-detals">
         <h3 id="title-card">{{ guia.title }}</h3>
         <p>{{ guia.excerpt }}</p>
@@ -47,17 +47,20 @@
     </section>
 
 
-    <section id="depoiments">
+  <section id="depoiments">
   <h2 id="title-depoiments">O que nossos usuários dizem</h2>
+
   <div class="depoiments-container">
     <div class="card-depoiments">
       <h3 class="name-person">João Silva</h3>
       <p class="depoiment-text">"Este sistema facilitou muito a organização dos meus estudos. Recomendo!"</p>
     </div>
+
     <div class="card-depoiments">
       <h3 class="name-person">Maria Oliveira</h3>
       <p class="depoiment-text">"Ótima plataforma, super intuitiva e eficiente para gestão educacional."</p>
     </div>
+
     <div class="card-depoiments">
       <h3 class="name-person">Carlos Souza</h3>
       <p class="depoiment-text">"A equipe de suporte é excelente e sempre pronta para ajudar."</p>
