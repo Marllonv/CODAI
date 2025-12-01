@@ -21,6 +21,7 @@
                     <img src="{{ url_for('static', filename='image/screen03 1.png') }}" alt="Ilustração de perfil e segurança">
                 {% endif %}
             </figure>
+            <div class="pf-rows-content">
                 <p class="pf-row">
                     <span class="pf-label">Nome:</span>
                     <span id="pf-name">{{ current_user.nome }}</span>
@@ -33,10 +34,11 @@
                     <span class="pf-label">Telefone:</span>
                     <span id="pf-telefone">{{ user.perfil.telefone if user.perfil else '' }}</span>
                 </p>
+            </div>
                 
                 
                 <div class="pf-actions">
-                    <button href="{{ url_for('auth.editar_perfil') }}" class="btn-primary">Editar Perfil</button>
+                    <button href="{{ url_for('auth.editar_perfil') }}" class="btn-primary">Editar</button>
                     <form action="{{ url_for('auth.logout') }}" method="post">
                         <button class="btn-danger" type="submit">Logout</button>
                     </form>

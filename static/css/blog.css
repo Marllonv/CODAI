@@ -64,6 +64,7 @@ body.light .blog-hero {
 /* ACTIONS */
 .blog-btn {
   display: block;
+  width: 250px;
   margin: 25px auto;
   padding: 12px 28px;
   background-color: #6cf5e6;

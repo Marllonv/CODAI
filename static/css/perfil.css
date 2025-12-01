@@ -29,7 +29,7 @@ body.perfil{ padding: 0; }
 /* ===== HERO ===== */
 .pf-hero{
   display: grid;
-  grid-template-columns: 1.1fr .9fr; /* proporção de colunas semelhante ao seu exemplo */
+  grid-template-columns: 1.1fr .9fr; /*proporção de colunas semelhante ao seu exemplo*/
   align-items: center;
   justify-content: center;
   column-gap: 56px;
@@ -44,44 +44,55 @@ body.perfil{ padding: 0; }
   font-weight: 800;
 }
 
-.pf-row{ margin: 0; }
+.pf-rows-content .pf-row{
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* .pf-row{ margin: 0; } */
 .pf-label{ font-weight: 700; margin-right: .35rem; }
 
-.pf-actions{ margin-top: 8px; }
+.pf-actions{ 
+  margin-top: 8px;
+  display: flex;
+  gap: 16px;
+}
 
 /* ===== Botões ===== */
 .btn-primary{
-    padding: .6rem 1rem;
   border-radius: 12px;
   background: #41A8BF;
+  width: 80px;
   color: #fff;
   border: none;
   cursor: pointer;
-  margin: 10px;
-  box-shadow: 0 8px 18px rgba(225,75,75,.25);
 }
-.btn-primary:hover{ filter: brightness(1.06); }
+.btn-primary:hover{ filter: brightness(1.25); }
+
+.btn-primary, .btn-danger{
+  padding: 5px 10px;
+}
 
 /* Logout vermelho */
 .btn-danger{
-  padding: .6rem 1rem;
   border-radius: 12px;
+  width: 80px;
   background: #E14B4B;      /* vermelho */
   color: #fff;
   border: none;
   cursor: pointer;
-    margin: 10px;
-  box-shadow: 0 8px 18px rgba(225,75,75,.25);
 }
-.btn-danger:hover{ filter: brightness(1.05); }
+.btn-danger:hover{ filter: brightness(1.25); }
 
 /* ===== Ilustração ===== */
-.pf-illustration{ margin: 0; display: grid; place-items: center; }
+.pf-illustration{ margin: 0; display: grid; place-items: center; margin-bottom: 16px;}
 .pf-illustration img{
   width: 100%;
   max-width: 420px;
   height: auto;
   filter: drop-shadow(0 12px 34px rgba(0,0,0,.45));
+  justify-self: left;
+  margin: 0 0 0 35px;
 }
 
 /* ===== ATIVIDADES ===== */
