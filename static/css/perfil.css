@@ -1,155 +1,176 @@
-/* Paleta:
-   bg #030C26 | surface #06133c | texto claro #DCE2F2
-   primary #41A8BF | accent #85F2E7 | texto escuro #262626
-*/
+/* ======================
+   PALETA
+====================== */
+:root{
+  --bg: #030C26;
+  --surface: #06133c;
+  --primary: #41A8BF;
+  --accent: #85F2E7;
+  --danger: #E14B4B;
+  --text-light: #DCE2F2;
+  --text-dark: #262626;
+}
 
-/* remove o padding lateral do global SOMENTE nesta página */
-body.perfil{ padding: 0; }
+/* ======================
+   BODY
+====================== */
+body.perfil{
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text-light);
+  font-family: 'Inter', system-ui, sans-serif;
+}
 
-/* ===== TELA CHEIA CENTRALIZADA ===== */
+/* ======================
+   LAYOUT GERAL
+====================== */
 .pf-shell{
-  min-height: 100vh;            /* ocupa toda a altura */
+  min-height: 100vh;
   display: flex;
-  align-items: center;          /* centraliza verticalmente */
+  align-items: center;
+  justify-content: center;
 }
 
 .pf-container{
-  width: min(1200px, 92vw);     /* largura fixa e centralizada */
-  margin: 0 auto;
+   width: min(1400px, 96%);
+  margin: auto;
 }
 
-/* ===== TOPO (logo no canto) ===== */
-.pf-top{
-  height: 64px;
-  display: flex;
-  align-items: center;
-}
-.pf-logo{ height: 28px; }
-
-/* ===== HERO ===== */
+/* ======================
+   HERO FLEX CENTRALIZADO
+====================== */
 .pf-hero{
-  display: grid;
-  grid-template-columns: 1.1fr .9fr; /*proporção de colunas semelhante ao seu exemplo*/
+  min-height: 80vh;
+  display: flex;
   align-items: center;
   justify-content: center;
-  column-gap: 56px;
-  padding: 24px 0 40px;
+  gap: 3rem;
+  flex-wrap: wrap;
 }
 
-.pf-info{ display: grid; gap: 10px; }
-
-.pf-title{
-  margin: 0 0 12px;
-  font-size: clamp(1.4rem, 2.4vw, 1.75rem);
-  font-weight: 800;
-}
-
-.pf-rows-content .pf-row{
-  font-size: 1rem;
-  line-height: 1.4;
-}
-
-/* .pf-row{ margin: 0; } */
-.pf-label{ font-weight: 700; margin-right: .35rem; }
-
-.pf-actions{ 
-  margin-top: 8px;
-  display: flex;
-  gap: 16px;
-}
-
-/* ===== Botões ===== */
-.btn-primary{
-  border-radius: 12px;
-  background: #41A8BF;
-  width: 80px;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-.btn-primary:hover{ filter: brightness(1.25); }
-
-.btn-primary, .btn-danger{
-  padding: 5px 10px;
-}
-
-/* Logout vermelho */
-.btn-danger{
-  border-radius: 12px;
-  width: 80px;
-  background: #E14B4B;      /* vermelho */
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-.btn-danger:hover{ filter: brightness(1.25); }
-
-/* ===== Ilustração ===== */
-.pf-illustration{ margin: 0; display: grid; place-items: center; margin-bottom: 16px;}
-.pf-illustration img{
+/* ======================
+   CARTÃO DE INFO
+====================== */
+.pf-info{
+  border-radius: 18px;
+  padding: 2.8rem 3rem;
+  max-width: 560px;
   width: 100%;
-  max-width: 420px;
-  height: auto;
-  filter: drop-shadow(0 12px 34px rgba(0,0,0,.45));
-  justify-self: left;
-  margin: 0 0 0 35px;
+  box-shadow: 0 15px 45px rgba(0,0,0,.45);
+  border: 1px solid rgba(133,242,231,.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-/* ===== ATIVIDADES ===== */
-.pf-activities{ padding-top: 8px; }
-
-.pf-subtitle{
-  margin: 0 0 16px;
-  font-size: clamp(1.15rem, 2vw, 1.35rem);
+/* ======================
+   TÍTULO
+====================== */
+.pf-title{
+  margin-bottom: 1rem;
+  font-size: clamp(2rem, 3vw, 2.6rem);
   font-weight: 800;
 }
 
-/* grid de cards alinhado com o container */
-.act-grid{
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-
-/* card */
-.act-card{
-  display: grid;
-  grid-template-rows: 1fr auto;
-  background: #0B1A3B; /* levemente mais claro que o bg */
-  border: 1px solid rgba(133,242,231,.12);
-  border-radius: 14px;
-  min-height: 160px;
-  overflow: hidden;
-}
-.act-body{ padding: 14px 14px 10px; }
-.act-title{ margin: 0 0 4px; font-size: 1rem; font-weight: 800; }
-.act-meta{ margin: 0; opacity: .88; font-size: .9rem; }
-
-.act-footer{ background: #41A8BF; padding: 10px 14px; }
-.act-link{ color: #081018; font-weight: 800; text-decoration: none; }
-.act-link:hover{ text-decoration: underline; }
-
-/* botão voltar com respiro */
-.pf-bottom{
+/* ======================
+   IMAGEM
+====================== */
+.pf-illustration{
   display: flex;
   justify-content: center;
-  margin-top: 28px; /* distância dos cards */
+  margin-bottom: 1.2rem;
 }
 
-/* ===== RESPONSIVO ===== */
-@media (max-width: 1100px){
-  .pf-hero{ column-gap: 40px; }
-  .act-grid{ grid-template-columns: repeat(3, 1fr); }
+.pf-illustration img{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0,0,0,.6);
 }
-@media (max-width: 900px){
-  .pf-hero{
-    grid-template-columns: 1fr;  /* empilha hero */
-    row-gap: 24px;
-  }
-  .pf-illustration img{ max-width: 320px; }
-  .act-grid{ grid-template-columns: repeat(2, 1fr); }
+
+/* ======================
+   DADOS
+====================== */
+.pf-rows-content{
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+  width: 100%;
 }
+
+.pf-row{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: .4rem;
+  font-size: 1.05rem;
+  opacity: .95;
+}
+
+.pf-label{
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* ======================
+   AÇÕES
+====================== */
+.pf-actions{
+  margin-top: 1.4rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+/* ======================
+   BOTÕES
+====================== */
+button,
+a.btn-primary{
+  background: linear-gradient(135deg, #41A8BF, #318ea3);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: .65rem 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  min-width: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .25s ease;
+  text-decoration: none;
+}
+
+.btn-danger{
+  background: linear-gradient(135deg, #E14B4B, #b93a3a);
+}
+
+button:hover,
+a.btn-primary:hover{
+  transform: translateY(-4px);
+  filter: brightness(1.15);
+}
+
+/* ======================
+   RESPONSIVO
+====================== */
 @media (max-width: 520px){
-  .act-grid{ grid-template-columns: 1fr; }
-  .pf-bottom{ margin-top: 22px; }
+  .pf-info{
+    padding: 1.5rem;
+  }
+
+  .pf-actions{
+    flex-direction: column;
+  }
+
+  .pf-illustration img{
+    width: 95px;
+    height: 95px;
+  }
 }
